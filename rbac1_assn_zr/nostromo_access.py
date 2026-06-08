@@ -1,4 +1,6 @@
-# A simple model of an RBAC program, in cyberspace no one can hear you scream.
+import random
+
+# A model of an RBAC program, in cyberspace no one can hear you scream.
 
 
 def adminQuery(): 
@@ -29,12 +31,20 @@ class Crew:
         self.name = name
         self.role = role 
 
-    #instantiate class
+#instantiate class
 
-        user_warrant_officer = Crew(name ='Ripley', role = 'user')
+user_warrant_officer = Crew(name ='Ripley', role = 'user')
 
-        admin_science_officer = Crew(name = 'Ash', role = 'admin')
+admin_science_officer = Crew(name = 'Ash', role = 'admin')
 
+
+# simulate logged in user without input
+
+nostromo_compliment: list = [user_warrant_officer, admin_science_officer]
+
+simulated_logged_user = random.choice(nostromo_compliment)
+
+    
 
 
 if Crew.role == 'user':
