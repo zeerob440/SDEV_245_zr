@@ -48,12 +48,12 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
     - passwords, biometrics, tokens.
     - it tries to confirm that a virtual identity corresponds with a physical identity.
 
-Common Authentication Protocols
+2. Common Authentication Protocols
     * OAuth
     * OpenID
     * SAML
 
-Authentication Methods Factors TTPs
+3. Authentication Methods Factors TTPs
     * Knowledge Factor| PINs, security questions
     * Possession Req| authenticator apps, Smartcards,      tokens
     * Inherence Factor| biometrics
@@ -62,7 +62,7 @@ Authentication Methods Factors TTPs
     * mfa| many factors are needed
     * Adaptive Authentication| uses user behavior as an authentication factor. such as locations like getting locked out of Linkedin because nothing I own touches the Internet with out VPN active. 
 
-Authentication CSEC attack vectors
+4. Authentication CSEC attack vectors
     * passwords
     * Phishing
     * Credential theft| malware, Keyloggers
@@ -79,18 +79,18 @@ Authentication CSEC attack vectors
 
 
 
-Common Authorization Protocols
+5. Common Authorization Protocols
     - RBAC (Role-Based Access Control)
     - ABAC (Attribute-Based Access Control)
 
-Authorization TTPs 
+6. Authorization TTPs 
     * Identity| determines if user has correct credentials to access areas of the system. 
     * Context| permissions are determined by other factors such as time of day or location. 
     * RBAC| Role-based, users with a given role within a system can access specific parts of the system. If/elif/else logic
     * ABAC| Users with specific attributes associated with their class instance, are granted specif permissions. 
     * Rules-Based Auth| Like granting roles in Everbridge. Each role is configured to a specif type of user. 
 
-Authorization CSEC Concerns
+7. Authorization CSEC Concerns
     * Too much access
     * too little access
     * Role Creep| my current job
