@@ -15,20 +15,20 @@ NO FURTHER ENHANCEMENT\n
 SPECIAL ORDER 937\n
 SCIENCE OFFICER EYES ONLY.\n
 '''
-class User:
+class Crew:
     def __init__(self, name, role):
         self.name = name
         self.role = role 
 
     #instantiate class
 
-    warrant_officer = User(name ='Ripley', role = 'user')
+    user_warrant_officer = Crew(name ='Ripley', role = 'user')
 
-    science_officer = User(name = 'Ash', role ='admin')
+    admin_science_officer = Crew(name = 'Ash', role ='admin')
 
-if User.role == 'user':
+if Crew.role == 'user':
     print(user_return)
-elif User.role == 'admin':
+elif Crew.role == 'admin':
     print(admin_return)
 
     
