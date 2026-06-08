@@ -115,6 +115,12 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
     * Discretionary Access Control| (DAC) access granted by owner of resource. This is determined by business rules or how the owner is feeling on a particular day.
     * Mandatory Access Control| (MAC) A group of people or individual decide who has access, access is often defined in tiers. Often used by govt entities. 
 
+    ### Audit, logging, access control events.
+
+    Logging access control events involves capturing information such as user login attempts, resource access requests, permission changes, and access denials. These logs can be used for security analysis, forensic investigations, and compliance auditing.
+
+    Auditing logging: allows developers to monitor user activity on during logging instances, thereby alerting the team of unexpected access attempts, unauthorized access and other security risks. 
+
 
 
 
