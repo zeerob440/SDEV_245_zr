@@ -1,22 +1,29 @@
-# A simple model of access control.
+# A simple model of an RBAC program, in cyberspace no one can hear you scream.
 
 
-admin_return = '''
-NOSTROMO REROUTED\n
-TO NEW CO-ORDINATES\n
-INVESTIGATE LIFE FORM. GATHER SPECIMEN.\n
-PRIORITY ONE\n
-INSURE RETURN OF ORGANISM\n
-FOR ANALYSIS.\n
-ALL OTHER CONSIDERATIONS SECONDARY.\n
-CREW EXPENDABLE.\n
-'''
-user_return ='''
-UNABLE TO CLARIFY.\n
-NO FURTHER ENHANCEMENT\n
-SPECIAL ORDER 937\n
-SCIENCE OFFICER EYES ONLY.\n
-'''
+def adminQuery(): 
+    admin_return: str ='''
+    NOSTROMO REROUTED\n
+    TO NEW CO-ORDINATES\n
+    INVESTIGATE LIFE FORM. GATHER SPECIMEN.\n
+    PRIORITY ONE\n
+    INSURE RETURN OF ORGANISM\n
+    FOR ANALYSIS.\n
+    ALL OTHER CONSIDERATIONS SECONDARY.\n
+    CREW EXPENDABLE.\n
+    '''
+    return admin_return
+
+
+def userQuery():
+    user_return: str ='''
+    UNABLE TO CLARIFY.\n
+    NO FURTHER ENHANCEMENT\n
+    SPECIAL ORDER 937\n
+    SCIENCE OFFICER EYES ONLY.\n
+    '''
+    return user_return
+
 class Crew:
     def __init__(self, name, role):
         self.name = name
@@ -28,10 +35,14 @@ class Crew:
 
         admin_science_officer = Crew(name = 'Ash', role = 'admin')
 
+
+
 if Crew.role == 'user':
-    print(user_return)
+    execute_user_query = userQuery()
+    print(execute_user_query)
 elif Crew.role == 'admin':
-    print(admin_return)
+    execute_admin_query = adminQuery()
+    print(execute_admin_query)
 else: 
     print('UNABLE TO COMPUTE.\n')
 
