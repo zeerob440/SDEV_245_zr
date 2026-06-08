@@ -14,11 +14,13 @@ Repo is for learning secure coding techniques.
     - Unauthorized Access
     - Weak encryption
     - insider threats (disgruntled staff).
+    - Man in the middle attacks (MITM)
 
 #### Defending C
     - Encryption use encryption methods such as AES (Advanced Encryption Standard) or RSA (Rivest-Shamir-Adleman) AVOID DES (Data Encryption Standard).
     - VPN should be used
     - Access Control strict implementation should be designed.
+    - MFA should be used. 
 
 2. I is INTEGRITY, data should be unaltered. threat vectors include:
     - Data tampering| spoofed data altered data inserted by attackers.
@@ -35,8 +37,17 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
 #### Defending A
     - Hardware maintenance| upgrade hardware before EOSL
     - Regular Upgrades| Keep software updated.
-    - Failover Contingency| have backup systems on the software and operational side of the enterprise. 
+    - Failover Contingency| AKA Disaster Recovery Plans. Have backup systems on the software and operational side of the enterprise. 
     - Prevent Bottlenecks| Manage traffic. 
 
+### Authentication Vs Authorization
 
+1. Authentication| 'Who are you?'
+    - confirms identity of users.
+    - establishes the legitimacy of users
+    - passwords, biometrics, tokens.
+    - it tries to confirm that a virtual identity corresponds with a physical identity.
 
+2. Authorization 'What are you allowed to do?'
+    - grants or denies access for users with that are expected in the system.
+    - it authorizes users by attributes such as roles and permissions
