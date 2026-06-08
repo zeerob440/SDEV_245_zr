@@ -47,10 +47,10 @@ simulated_logged_user = random.choice(nostromo_compliment)
     
 
 
-if Crew.role == 'user':
+if simulated_logged_user.role == 'user':
     execute_user_query = userQuery()
     print(execute_user_query)
-elif Crew.role == 'admin':
+elif simulated_logged_user.role == 'admin':
     execute_admin_query = adminQuery()
     print(execute_admin_query)
 else: 
