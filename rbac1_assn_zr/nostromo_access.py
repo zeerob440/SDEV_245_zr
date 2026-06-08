@@ -24,9 +24,9 @@ class Crew:
 
     #instantiate class
 
-    user_warrant_officer = Crew(name ='Ripley', role = 'user')
+        user_warrant_officer = Crew(name ='Ripley', role = 'user')
 
-    admin_science_officer = Crew(name = 'Ash', role = 'admin')
+        admin_science_officer = Crew(name = 'Ash', role = 'admin')
 
 if Crew.role == 'user':
     print(user_return)
