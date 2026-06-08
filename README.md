@@ -96,5 +96,27 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
     * Role Creep| my current job
     * Inconsistent Role Definitions
     * Access Control misconfiguration: semantic and logic errors in user class
+
+### Access Control
+
+#### Access Control Types
+4. There are two kinds of Access control.
+    * Physical| physical spaces
+    * logical|intangible places like software. 
+ 
+4. Access Control Concepts
+    * Identity 'Who are you?' 
+    * AuthT 'What are you?'
+    * AuthZ 'What can you access within?'
+    * Principle of Least Privilege 'Need to know basis.' 
+    * Principal of Separation of Duties|(like nuclear codes, multiple people need to do something in order for a request to process)
+    * Access Control List| (ACL) User class instances are granted access to specific functions such as read or write, or other operations.
+    * Capabilities| access granted via password, token or smart card. 
+    * Discretionary Access Control| (DAC) access granted by owner of resource. This is determined by business rules or how the owner is feeling on a particular day.
+    * Mandatory Access Control| (MAC) A group of people or individual decide who has access, access is often defined in tiers. Often used by govt entities. 
+
+
+
+
     
 
