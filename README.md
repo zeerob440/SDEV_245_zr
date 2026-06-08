@@ -48,6 +48,53 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
     - passwords, biometrics, tokens.
     - it tries to confirm that a virtual identity corresponds with a physical identity.
 
+Common Authentication Protocols
+    * OAuth
+    * OpenID
+    * SAML
+
+Authentication Methods Factors TTPs
+    * Knowledge Factor| PINs, security questions
+    * Possession Req| authenticator apps, Smartcards,      tokens
+    * Inherence Factor| biometrics
+    * SFA| only one authentication factor is needed passwords for example
+    * 2fa| two factors are needed, password + auth app
+    * mfa| many factors are needed
+    * Adaptive Authentication| uses user behavior as an authentication factor. such as locations like getting locked out of Linkedin because nothing I own touches the Internet with out VPN active. 
+
+Authentication CSEC attack vectors
+    * passwords
+    * Phishing
+    * Credential theft| malware, Keyloggers
+    * Account lockouts| burns out helpdesk 
+    * Credential Stuffing| spoofed data added to a legitimate 
+    * MFA absenteeism| no MFA
+    * Depreciated legacy systems|     
+
+
+
 2. Authorization 'What are you allowed to do?'
     - grants or denies access for users with that are expected in the system.
     - it authorizes users by attributes such as roles and permissions
+
+
+
+Common Authorization Protocols
+    - RBAC (Role-Based Access Control)
+    - ABAC (Attribute-Based Access Control)
+
+Authorization TTPs 
+    * Identity| determines if user has correct credentials to access areas of the system. 
+    * Context| permissions are determined by other factors such as time of day or location. 
+    * RBAC| Role-based, users with a given role within a system can access specific parts of the system. If/elif/else logic
+    * ABAC| Users with specific attributes associated with their class instance, are granted specif permissions. 
+    * Rules-Based Auth| Like granting roles in Everbridge. Each role is configured to a specif type of user. 
+
+Authorization CSEC Concerns
+    * Too much access
+    * too little access
+    * Role Creep| my current job
+    * Inconsistent Role Definitions
+    * Access Control misconfiguration: semantic and logic errors in user class
+    
+
