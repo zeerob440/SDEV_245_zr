@@ -1,4 +1,6 @@
 # A simple model of access control.
+
+
 admin_return = '''
 NOSTROMO REROUTED\n
 TO NEW CO-ORDINATES\n
@@ -24,12 +26,14 @@ class Crew:
 
     user_warrant_officer = Crew(name ='Ripley', role = 'user')
 
-    admin_science_officer = Crew(name = 'Ash', role ='admin')
+    admin_science_officer = Crew(name = 'Ash', role = 'admin')
 
 if Crew.role == 'user':
     print(user_return)
 elif Crew.role == 'admin':
     print(admin_return)
+else: 
+    print('UNABLE TO COMPUTE.\n')
 
     
 
