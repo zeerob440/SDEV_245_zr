@@ -22,7 +22,7 @@ Repo is for learning secure coding techniques.
     - Access Control strict implementation should be designed.
     - MFA should be used. 
 
-2. I is INTEGRITY, data should be unaltered. threat vectors include:
+1. I is INTEGRITY, data should be unaltered. threat vectors include:
     - Data tampering| spoofed data altered data inserted by attackers.
     - Malware & Ransomware
 
@@ -31,7 +31,7 @@ Repo is for learning secure coding techniques.
 
 This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashes are compared if == integrity preserved ELSE data is altered.
 
-3. A is AVAILABILITY, threat vectors include
+1. A is AVAILABILITY, threat vectors include
     - DoS and DDoS attacks
 
 #### Defending A
@@ -42,7 +42,7 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
 
 ### Authentication Vs Authorization
 
-1. Authentication| 'Who are you?'
+2. Authentication| 'Who are you?'
     - confirms identity of users.
     - establishes the legitimacy of users
     - passwords, biometrics, tokens.
@@ -53,7 +53,7 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
     * OpenID
     * SAML
 
-3. Authentication Methods Factors TTPs
+2. Authentication Methods Factors TTPs
     * Knowledge Factor| PINs, security questions
     * Possession Req| authenticator apps, Smartcards,      tokens
     * Inherence Factor| biometrics
@@ -62,7 +62,7 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
     * mfa| many factors are needed
     * Adaptive Authentication| uses user behavior as an authentication factor. such as locations like getting locked out of Linkedin because nothing I own touches the Internet with out VPN active. 
 
-4. Authentication CSEC attack vectors
+2. Authentication CSEC attack vectors
     * passwords
     * Phishing
     * Credential theft| malware, Keyloggers
@@ -73,24 +73,24 @@ This functions as HOST A sends data > Attach Hash > HOST B verifies data > hashe
 
 
 
-2. Authorization 'What are you allowed to do?'
+3. Authorization 'What are you allowed to do?'
     - grants or denies access for users with that are expected in the system.
     - it authorizes users by attributes such as roles and permissions
 
 
 
-5. Common Authorization Protocols
+3. Common Authorization Protocols
     - RBAC (Role-Based Access Control)
     - ABAC (Attribute-Based Access Control)
 
-6. Authorization TTPs 
+3. Authorization TTPs 
     * Identity| determines if user has correct credentials to access areas of the system. 
     * Context| permissions are determined by other factors such as time of day or location. 
     * RBAC| Role-based, users with a given role within a system can access specific parts of the system. If/elif/else logic
     * ABAC| Users with specific attributes associated with their class instance, are granted specif permissions. 
     * Rules-Based Auth| Like granting roles in Everbridge. Each role is configured to a specif type of user. 
 
-7. Authorization CSEC Concerns
+3. Authorization CSEC Concerns
     * Too much access
     * too little access
     * Role Creep| my current job
