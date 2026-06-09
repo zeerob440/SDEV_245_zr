@@ -15,6 +15,6 @@ Roles were assigned with the 'role' attribute in the class 'Crew'. Two class ins
 ## Simulated login
 
 Next a list 'nostromo_compliment' was declared and populated with user_warrant_officer, and admin_science_officer.
-simulated_logged_user used random.choice to parse list nostromo_compliment, the class instance it retrued becomes the logged in user Ash or Ripley.
+simulated_logged_user used random.choice to parse list nostromo_compliment, the class instance it returned becomes the logged in user Ash or Ripley.
 
-Lastly an if/elif/else structure was used to determine if the Crew class instance roles == 'admin' or 'user'. If 'user' function userQuery() was returned, else if 'admin' adminQuery() was returned. Otherwise if data was tampered with, 'UNABLE TO COMPUTE' was retruned, and data remained confidential.
+Lastly an if/elif/else structure was used to determine if the Crew class instance roles == 'admin' or 'user'. If 'user' function userQuery() was returned, else if 'admin' adminQuery() was returned. Otherwise if data was tampered with, 'UNABLE TO COMPUTE' was returned, and data remained confidential.
