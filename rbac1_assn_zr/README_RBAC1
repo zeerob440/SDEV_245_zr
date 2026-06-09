@@ -2,9 +2,14 @@
 
 I enjoyed writing this program, and recreating a scene from the movie Alien (1979).
 
-# Program Logic
+## How To Run Program
 
-## Declarations
+Open in your favorite IDE, run program. Program returns a doc string from one of two function then ends. The docs string is returned via random.choice. Keep running the program to see all possible doc string returns. 
+
+
+## Program Logic
+
+### Declarations
 
 random was imported to facilitate simulated logins
 
@@ -12,9 +17,9 @@ Two separate functions were declared (adminQuery() and userQuery()). Each functi
 
 Roles were assigned with the 'role' attribute in the class 'Crew'. Two class instances were declared admin_science_officer, and user_warrant_officer. admin_science_officer was assigned role 'admin', and user_warrant_officer was assigned role 'user'
 
-## Simulated login
+### Simulated login
 
 Next a list 'nostromo_compliment' was declared and populated with user_warrant_officer, and admin_science_officer.
 simulated_logged_user used random.choice to parse list nostromo_compliment, the class instance it returned becomes the logged in user Ash or Ripley.
 
-Lastly an if/elif/else structure was used to determine if the Crew class instance roles == 'admin' or 'user'. If 'user' function userQuery() was returned, else if 'admin' adminQuery() was returned. Otherwise if data was tampered with, 'UNABLE TO COMPUTE' was returned, and data remained confidential.
+Lastly an if/elif/else structure was used to determine if the Crew class instance roles == 'admin' or 'user'. If 'user' function userQuery() was returned, else if 'admin' adminQuery() was returned. Otherwise if data was tampered with, 'UNABLE TO COMPUTE' is returned, and data remained confidential.
