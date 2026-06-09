@@ -34,9 +34,9 @@ class Crew:
 
 #instantiate class
 
-user_warrant_officer = Crew(name ='Ripley', role = 'user')
+user_warrant_officer = Crew(name ='RIPLEY', role = 'user')
 
-admin_science_officer = Crew(name = 'Ash', role = 'admin')
+admin_science_officer = Crew(name = 'ASH', role = 'admin')
 
 
 # simulate logged in user without input, by placing class instances into list.
@@ -46,7 +46,7 @@ nostromo_compliment: list = [user_warrant_officer, admin_science_officer]
 # selects class instance with random.choice
 simulated_logged_user = random.choice(nostromo_compliment)
 
-welcome: str = f'''WELCOME {simulated_logged_user.name}\n
+welcome: str = f'''WELCOME {simulated_logged_user.name}.\n
 INTERFACE 2037 READY FOR INQUIRY
 ________________________________\n'''  
 
