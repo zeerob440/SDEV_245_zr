@@ -162,11 +162,16 @@ Cryptography consists of three major categories:
    - Uses a single shared secret key.
    - Example: AES.
    - plain text > secret key encryption > cipher text > secret key decryption > plain text
+   - faster than asymmetric encryption.
+   - less secure than Asymmetric encryption
+   - use for larger data sets
 
 2. Asymmetric Key Cryptography
    - Uses a public key and a private key.
    - Example: RSA.
-   plain text > public key encryption > cipher text > private key decryption > plain text.
+   - plain text > public key encryption > cipher text > private key decryption > plain text.
+   - computationally expensive
+   - use for smaller datasets
 
 3. Hash Functions
    - One-way mathematical functions used to verify integrity and securely store data.
@@ -232,19 +237,20 @@ Cryptography consists of three major categories:
 
 ### PUBLIC KEY INFRASTRUCTURE (PKI)
 
+PKI is intended for internet application security.
+
 PKI is a framework for assigning identity to users through digital certificates. when paired with public key cryptography.
 
 #### Components of PKI
 
 1. Certificate Authority (CA)
 CA uses its own private key to validate digital certificates that can be verified through a requested public key.
-- trusted entity
-* Issues CA
-* Stores CA
-* and validates CA
+    - trusted entity
+    * Issues digital certificate (X.509 Certificate)
+    * Stores digital certificate
+    * signs digital cartificate
 2. Registration Authority (RA)
-RA is used as both CA , or RA can be another third party.
-in both instances it is responsible to identify users and or device requesting the digital certificate.
+    - The RA verifies the identity of the user or device requesting the digital certificate. This can be a third party, or the CA can also act as the RA
 3. Certificate database 
     - database stores digital certificates. 
 4. Central directory
@@ -257,7 +263,7 @@ in both instances it is responsible to identify users and or device requesting t
     - distribution
     - revocation
 6. Certificate policy
-A publicly accessible policy detailing the PKI’s procedures and standards. Third parties can use the certificate policy to assess the trustworthiness of the PKI.
+    - A publicly accessible policy detailing the PKI’s procedures and standards. Third parties can use the certificate policy to assess the trustworthiness of the PKI.
 
 In actionable language PKI is the framework that allows something like a bank verify that the users' requesting authorization is the actual user, verifies via digtal certificate then allows or denies entry.
 
@@ -271,4 +277,12 @@ In actionable language PKI is the framework that allows something like a bank ve
 - the key owner signs the CSR to prove possession is private.
 - the CA validates the request and signs the digital certificate with the CA's private key. 
 
+### open source PKI
+
+1. openSSL
+    - most python friendly
+    - library == 'ssl'
+    - enterprise grade
+
+### Database encryption
 
