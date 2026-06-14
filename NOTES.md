@@ -286,3 +286,49 @@ In actionable language PKI is the framework that allows something like a bank ve
 
 ### Database encryption
 
+long keys might reduce the number of possible active sessions.
+
+#### common methods
+
+1. API Method
+    - app level
+    - queries are within encrypted columns and modified in the app
+2. Plug-In Method
+    - encryption module is attached to the DBMS
+3. Transparent Data Encryption Method (TDS) 
+    - executes encryption/decryption inside the database engine
+    - easier to manage.
+
+
+#### Transparent Database Encryption
+- type of external encryption
+- refers to entire database encryption
+- is 'invisible' because users cannot see the encryption
+
+### database encryption levels
+1. cell level - each cell has it's own password
+    * use when high-level of security is needed.
+2. column level- each column has its own password
+    * most common database encryption
+3. Tablespace level
+    * encrypts across tables
+    * does not have high impact on database performance
+4. File Level
+    * this method scrambles entire files
+    * this method may degrade database performance. 
+
+#### datbase encryption methods
+1. AES
+2. RAS
+3. 3DES (triple data encryption)
+    - 56 bit keys
+    - encrypts data up to 3 times
+    - depreciating 
+4. Twofish
+    - symmetric block cipher
+    - 128-256 bit
+    - flexible license-free
+    - encrypts 16 times always
+
+
+- 
