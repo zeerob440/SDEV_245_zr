@@ -1,3 +1,3 @@
-import cryptography
+from cryptography import fernet
 
-print (dir(cryptography))
+print (dir(fernet))
