@@ -330,5 +330,6 @@ long keys might reduce the number of possible active sessions.
     - flexible license-free
     - encrypts 16 times always
 
+### how does HTTPS work
 
-- 
+- https uses public and private keys and PKI infrastructure
