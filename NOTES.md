@@ -177,7 +177,7 @@ Cryptography consists of three major categories:
 #### other cryptography algorithms
 
 1. Secure Hash Algorithm (SHA)
-    - uses fixed length HAS values.
+    - uses fixed length HASH VALUES.
     - used for verifying data integrity and authenticity.
 
 2. Elliptical Curve Cryptography (ECC)
@@ -194,3 +194,81 @@ Cryptography consists of three major categories:
     - US Standard in 1977, probably used to encrypt Bee Gees lyrics.
     - uses 64 bit plain text blocks, returns a 64-bit cipher text
     - generates a sub key > encrypts it
+
+### Known Cryptography Attack Vectors
+
+| Attack Type | Attacker Knows / Controls | Goal | Example |
+|--------------|--------------------------|------|---------|
+| **Brute Force** | Tries every possible key | Find the key | Password cracking |
+| **Ciphertext-Only Attack** | Ciphertext only | Recover plaintext or key | Sniffing encrypted traffic |
+| **Known Plaintext Attack** | Plaintext and matching ciphertext | Deduce the key | WWII codebreaking |
+| **Chosen Plaintext Attack** | Attacker chooses plaintext and observes ciphertext | Analyze cipher and recover key | Cryptographic experiments |
+| **Chosen Ciphertext Attack** | Attacker chooses ciphertext and observes decrypted plaintext | Recover the key or exploit weaknesses | Early RSA attacks |
+| **Differential Cryptanalysis** | Differences between plaintexts and ciphertexts | Discover the key by analyzing output differences | DES analysis |
+
+### Ordered from Least to Most Powerful Attacker
+
+1. **Brute Force**
+2. **Ciphertext-Only Attack**
+3. **Known Plaintext Attack**
+4. **Chosen Plaintext Attack**
+5. **Chosen Ciphertext Attack**
+6. **Differential Cryptanalysis**
+
+### Memory Aid
+
+| Attack | Think |
+|----------|-------|
+| **Brute Force** | Try everything |
+| **Ciphertext-Only** | See encrypted messages |
+| **Known Plaintext** | Know some message contents |
+| **Chosen Plaintext** | Choose what gets encrypted |
+| **Chosen Ciphertext** | Choose what gets decrypted |
+| **Differential Cryptanalysis** | Compare differences |
+
+### Key Idea
+
+> The more information and control an attacker has, the easier it becomes to recover the key or decrypt messages.
+
+### PUBLIC KEY INFRASTRUCTURE (PKI)
+
+PKI is a framework for assigning identity to users through digital certificates. when paired with public key cryptography.
+
+#### Components of PKI
+
+1. Certificate Authority (CA)
+CA uses its own private key to validate digital certificates that can be verified through a requested public key.
+- trusted entity
+* Issues CA
+* Stores CA
+* and validates CA
+2. Registration Authority (RA)
+RA is used as both CA , or RA can be another third party.
+in both instances it is responsible to identify users and or device requesting the digital certificate.
+3. Certificate database 
+    - database stores digital certificates. 
+4. Central directory
+    - A secure location that used for storing and indexing cryptographic keys
+5. Certificate management system
+    A set of protocols for managing digital certificates this includes
+    - access
+    - creation
+    - storage
+    - distribution
+    - revocation
+6. Certificate policy
+A publicly accessible policy detailing the PKI’s procedures and standards. Third parties can use the certificate policy to assess the trustworthiness of the PKI.
+
+In actionable language PKI is the framework that allows something like a bank verify that the users' requesting authorization is the actual user, verifies via digtal certificate then allows or denies entry.
+
+#### Transport Security Layer (TLS)
+    TLS uses cryptographic algorithms to establish protected connections between web browsers and servers.
+
+#### Creating new digital certificate process
+- private key is created and given to a certificate recipient for the private key owner
+- the CA requests and vets any identifying info for private key owner
+- the Public key and identifying attributes are encoded into a certificate signing request (CSR)
+- the key owner signs the CSR to prove possession is private.
+- the CA validates the request and signs the digital certificate with the CA's private key. 
+
+
