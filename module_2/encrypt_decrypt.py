@@ -2,7 +2,7 @@ from cryptography.fernet import Fernet
 
 #print (dir(fernet.Fernet))
 #print (help(fernet))
-
+symmetrical_welcome: str ='Below is an example of symmetrical encryption.\n'
 # test message to encrypt. 
 tutanota: str = "Hello World"
 # must be encoded into bytes first
@@ -25,7 +25,9 @@ print(encrypted)
 print('Test: printed decrypted tutanota below\n')
 
 decrypted = cipher_process.decrypt(encrypted)
-print(decrypted)
+# remove bytes prefix from string
+cleaned_decrypted_output = decrypted.decode()
+print(cleaned_decrypted_output)
 
 
 
