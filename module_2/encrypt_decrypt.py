@@ -47,12 +47,21 @@ THE WORLD WONDERS.'''
 #convert message to bytes
 msg_bytes = msg.encode()
 
+# generate public_key and private_key unpack them.
 public_key, private_key = rsa.newkeys(2048)
 
 print(f'public_key is:{public_key}')
 print()
 print(f'private_key is:{private_key}')
 
+# encrypt message with public key
+asy_cipher_text = rsa.encrypt(msg_bytes, public_key)
+print('cipher text below')
+print(asy_cipher_text)
+
+# decrypt message with private key. 
+asy_decrypt = rsa.decrypt(asy_cipher_text, 2048)
+print (asy_decrypt)
 
 
 
