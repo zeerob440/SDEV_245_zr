@@ -36,7 +36,7 @@ print('End of symmetrical encryption demonstration.\n')
 
 print('Asymmetric Encryption Demo.\n')
 
-print(dir(rsa))
+#print(dir(rsa))
 
 msg: str = '''
 TURKEY TROTS TO WATER GG FROM CINCPAC ACTION
@@ -47,9 +47,12 @@ THE WORLD WONDERS.'''
 #convert message to bytes
 msg_bytes = msg.encode()
 
-asymetric_keys = rsa.newkeys(2048)
+public_key, private_key = rsa.newkeys(2048)
 
-print(asymetric_keys)
+print(f'public_key is:{public_key}')
+print()
+print(f'private_key is:{private_key}')
+
 
 
 
