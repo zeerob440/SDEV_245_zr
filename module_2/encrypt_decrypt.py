@@ -1,4 +1,6 @@
 from cryptography.fernet import Fernet
+import rsa
+ 
 
 #print (dir(fernet.Fernet))
 #print (help(fernet))
@@ -30,6 +32,24 @@ decrypted = cipher_process.decrypt(encrypted)
 # Convert bytes to string
 cleaned_decrypted_output = decrypted.decode()
 print(f'Shared key is used to decrypt bytes, then converted to from bytes to string, original message is output:\n{cleaned_decrypted_output}\n')
-print('End of symmetrical encryption demonstration\n')
+print('End of symmetrical encryption demonstration.\n')
+
+print('Asymmetric Encryption Demo.\n')
+
+print(dir(rsa))
+
+msg: str = '''
+TURKEY TROTS TO WATER GG FROM CINCPAC ACTION
+COM THIRD FLEET INFO COMINCH CTF SEVENTY-SEVEN X
+WHERE IS RPT WHERE IS TASK FORCE THIRTY FOUR RR
+THE WORLD WONDERS.'''
+
+#convert message to bytes
+msg_bytes = msg.encode()
+
+asymetric_keys = rsa.newkeys(2048)
+
+print(asymetric_keys)
+
 
 
