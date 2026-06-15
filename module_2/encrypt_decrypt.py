@@ -42,7 +42,9 @@ msg: str = '''
 TURKEY TROTS TO WATER GG FROM CINCPAC ACTION
 COM THIRD FLEET INFO COMINCH CTF SEVENTY-SEVEN X
 WHERE IS RPT WHERE IS TASK FORCE THIRTY FOUR RR
-THE WORLD WONDERS.'''
+THE WORLD WONDERS.\n'''
+
+print (f'Message to be encrypted is:\n{msg}')
 
 #convert message to bytes
 msg_bytes = msg.encode()
@@ -50,18 +52,21 @@ msg_bytes = msg.encode()
 # generate public_key and private_key unpack them.
 public_key, private_key = rsa.newkeys(2048)
 
-print(f'public_key is:{public_key}')
-print()
-print(f'private_key is:{private_key}')
+print(f'public_key is:{public_key}\n')
+
+print(f'private_key is:{private_key}\n')
 
 # encrypt message with public key
 asy_cipher_text = rsa.encrypt(msg_bytes, public_key)
-print('cipher text below')
-print(asy_cipher_text)
+
+print(f'cipher text is:\n{asy_cipher_text}\n')
 
 # decrypt message with private key. 
-asy_decrypt = rsa.decrypt(asy_cipher_text, 2048)
-print (asy_decrypt)
+asy_decrypt = rsa.decrypt(asy_cipher_text, private_key)
+# convert bytes to string
+cleaned_decrypt = asy_decrypt.decode()
+# print decoded message.
+print(f'DECRYPTED MESSAGE IS:\n{cleaned_decrypt}\n')
 
 
 
