@@ -9,7 +9,7 @@ symmetrical_welcome: str ='Below is an example of symmetrical encryption.\n'
 print (symmetrical_welcome)
 
 # hard coded input string for symmetrical encryption.
-tutanota: str = "Hello World"
+tutanota: str = "Hello World!"
 print(f'The hardcoded input that will be encrypted is:\n{tutanota}.\n')
 
 # convert string into bytes in order for encryption to function as expected. 
