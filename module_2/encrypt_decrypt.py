@@ -3,31 +3,33 @@ from cryptography.fernet import Fernet
 #print (dir(fernet.Fernet))
 #print (help(fernet))
 symmetrical_welcome: str ='Below is an example of symmetrical encryption.\n'
-# test message to encrypt. 
+
+print (symmetrical_welcome)
+
+# hard coded input string for symmetrical encryption.
 tutanota: str = "Hello World"
-# must be encoded into bytes first
+print(f'The hardcoded input that will be encrypted is:\n{tutanota}.\n')
+
+# convert string into bytes in order for encryption to function as expected. 
 tutanota_bytes = tutanota.encode()
-# generate key
+# generate key to be used for encrypt and decrypt process.
 symmetrical_key = Fernet.generate_key()
-print('Semmetrical Key below:\n')
-print(symmetrical_key)
+
+print(f'This is the shared key used to encrypt and decrypt the string:\n{symmetrical_key}\n')
 
 # declare var to store generated key
 cipher_process = Fernet(symmetrical_key)
 
-print(cipher_process)
 # encrypt 'tutanota'
 encrypted = cipher_process.encrypt(tutanota_bytes)
 # confirm cipher text is returned
-print('Print Check: Is cipher text output below: TRUE\n')
-print(encrypted)
+print(f'The string has been encrypted into the following cipher text:\n {encrypted}\n')
 
-print('Test: printed decrypted tutanota below\n')
-
+# recall shared key to decrypt cipher text
 decrypted = cipher_process.decrypt(encrypted)
-# remove bytes prefix from string
+# Convert bytes to string
 cleaned_decrypted_output = decrypted.decode()
-print(cleaned_decrypted_output)
-
+print(f'Shared key is used to decrypt bytes, then converted to from bytes to string, original message is output:\n{cleaned_decrypted_output}\n')
+print('End of symmetrical encryption demonstration\n')
 
 
