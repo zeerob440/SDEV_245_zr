@@ -3,10 +3,21 @@ from cryptography.fernet import Fernet
 #print (dir(fernet.Fernet))
 #print (help(fernet))
 
-makes_a_key = Fernet.generate_key()
-print(makes_a_key)
+# test message to encrypt. 
 tutanota: str = "Hello World"
+# generate key
+symmetrical_key = Fernet.generate_key()
+print(symmetrical_key)
 
-#encrypted = encrypt(tutanota)
+# declare var to store generated key
+cipher_process = Fernet(symmetrical_key)
 
-#print(encrypted)
+print(cipher_process)
+# encrypt 'tutanota'
+encrypted = cipher_process.encrypt(tutanota)
+# confirm cipher text is returned
+print('Print Check: Is cipher text output below?\n')
+print(encrypted)
+
+
+
