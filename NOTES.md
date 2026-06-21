@@ -244,11 +244,11 @@ PKI is a framework for assigning identity to users through digital certificates.
 #### Components of PKI
 
 1. Certificate Authority (CA)
-CA uses its own private key to validate digital certificates that can be verified through a requested public key.
+    CA uses its own private key to validate digital certificates that can be verified through a requested public key.
     - trusted entity
     * Issues digital certificate (X.509 Certificate)
     * Stores digital certificate
-    * signs digital cartificate
+    * signs digital certificate
 2. Registration Authority (RA)
     - The RA verifies the identity of the user or device requesting the digital certificate. This can be a third party, or the CA can also act as the RA
 3. Certificate database 
@@ -436,5 +436,120 @@ There are many types of algorithms
     * finds local optimization solutions and tries to apply them globally to solve an upscaled version of the problem
 3. Recursive Algo
     * Calls itself over and over to solve a problem
+
+4. Backtracking algo
+    * makes a choice, if fail back track chose again until solved
+
+5. divide and conquer algo
+    * one part divides parent problem into several problem children
+    the other part solves the problem children
+
+6. dynamic programming algo
+    * one algo divides and conquers the entire problem
+
+7. Brute force algo
+    * try every combo possible to solve
+
+8. Sort algo
+    * sorts data by comparison until solution found
+
+9. Hashing algo
+    * takes data, converts it into a uniform message using hashing. 
+    * hashing creates cipher texts
+
+10. Randomized algo
+    * uses a random element in its operation
+    * like choice, or random ()
+
+### algorithm use cases
+
+1. Solving problems
+2. machine learning 
+
+### digital signature additions
+
+Digital signatures are produced by:
+encrypting the DOCUMENT'S HASH with THE SENDER'S Private Key. 
+
+### Engineering Process 
+
+Creation:
+
+Document
+    ↓
+Hash
+    ↓
+Encrypt hash with sender's private key
+    ↓
+Digital Signature
+
+Verification:
+
+Digital Signature
+    ↓
+Decrypt with sender's public key
+    ↓
+Recovered hash
+
+Document
+    ↓
+Hash
+
+Compare hashes
+
+Equal?
+    ↓
+Authentic and unchanged
+
+Guarantees:
+- Authenticity
+- Integrity
+- Non-repudiation
+
+
+### SHA-256 (Secure Hash Algorithm-256)
+
+(Secure Hash Algorithm) SHA-256 is always a 256 bit hash despite input values
+
+unsurprisingly developed by the NSA during the bush Administration.
+
+### Practically how it works.
+
+Plain text -> SHA-256 -> Hashed text
+
+### Arcanely how it works.
+
+1. input padding
+    * since all input is converted to 256-bit, binary padding is needed
     
-4. 
+
+2. initialization
+    * initial hash values are set to 8-32 bit words
+
+3. Processing in Blocks
+    * the padded message is divided into as many 512-bit blocks needed to hash the message.
+    * each block is run through a series of bitwise functions using current hash  and value and the block
+
+4. Compression Function
+    * Each 512-bit block is compressed, creating a new hash value.
+
+5. iteration
+    * compression is iterated 64 times for each 512-bit block.
+    * uses output from each 512-bit block as input in the next iteration.
+    * it shuffles essentially 
+
+6. output
+    * after the iteration is complete, the hash is the SHA-256 of the origin message
+
+### use cases
+
+1. digital sig
+2. blockchain tech
+3. password hashing 
+4. secure Communication 
+5. CAs
+6. File integrity checking (CIA Triad)
+
+
+
+
