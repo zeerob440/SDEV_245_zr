@@ -545,8 +545,8 @@ Plain text -> SHA-256 -> Hashed text
 
 1. digital sig
 2. blockchain tech
-3. password hashing 
-4. secure Communication 
+3. password hashing
+4. secure Communication
 5. CAs
 6. File integrity checking (CIA Triad)
 
