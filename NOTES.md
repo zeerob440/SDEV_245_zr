@@ -348,6 +348,11 @@ long keys might reduce the number of possible active sessions.
     * produces prandom values
     * sequence is dependent on initial seed.
 
+2. True Random Number Generator (TRNG)
+    * hardware in a machine that produces true random numbers 
+    * themmal noise
+    * 
+
 3. Cosmic Randomness- unpredictable, no apparent pattern
     * mouse movements
     * user activity
@@ -362,9 +367,9 @@ Therefore, the initial seed value should be produced from some cosmically random
 
 4. AES-256
     * uses 256-bits of entropy
-    * each bit is cosmically random
+    * each bit should be cosmically random
 
-### How to get cosmic randomness
+### How to get cosmic randomness from OS
 
 random seed values that produce keys should be obtained from something cosmically random. The most cosmically random entity on a computer is the user, the OS acts as the handler for cosmically random behavior between  cosmically random user behavior, such as user inputs, and the deterministic behavior of machines.
 
@@ -379,7 +384,7 @@ random seed values that produce keys should be obtained from something cosmicall
         - /dev/random
         - /dev/urandom
         - /dev/hw_random
-    * Supports Hardware TRNGs 
+    * Supports Hardware True Random Number Genrators (TRNGs) 
         - rng tools, linux software package, feeds entropy pool
         - RDRAND, AMD CPU instruction, provides random number
         - Trusted Platform Module (TPM), Hardware, security chip; secure key storage, randnum generator etc
@@ -387,7 +392,49 @@ random seed values that produce keys should be obtained from something cosmicall
 3. Solaris
     * for linux machines
     * supports /dev/random and /dev/urandom
-    * admins can add other entropy seeds. 
+    * admins can add external entropy seeds. 
 
 4. Windows
 
+1. CryptoAPI (depreciated)
+    * provided entropy pool values
+2. Cryptography (Cryptography API: Next Generation)
+    * also provides OS entropy sources to the entropy pool
+
+### Embedded systems
+
+1. Embedded Systems are machines that do some small task such as
+    * Calulators
+    * Routers
+    * IoT Devices
+    * Aircraft systems
+    * Industrial Controls
+    * Automotive ECUs
+    * Rasberry Pi
+    * Audrino 
+        - low CPU power
+        - often lack cosmically random input like mice
+        - headless 
+
+Embedded systems naturally have a smaller cosmic entropy pool, which make them less secure.
+
+How embedded system produce cosmic randomness is from dedicated hardware in the embedded system. 
+
+2. True Random Number Generator (TRNG)
+    - trng can be embedded into the embedded system to improve entropy pool
+
+Cloudfare uses an image feed from a rack of 80 lava lamps as an entropy source. 
+
+### algorithms
+
+There are many types of algorithms
+
+1. Encryption Algorithm
+    * transforms data from plain text > cipher text > plain text
+
+2. Greedy Algorithm
+    * finds local optimization solutions and tries to apply them globally to solve an upscaled version of the problem
+3. Recursive Algo
+    * Calls itself over and over to solve a problem
+    
+4. 
