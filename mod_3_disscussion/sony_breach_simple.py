@@ -27,9 +27,13 @@ secure_boot_hex: str = secure_boot_obj.hexdigest()
 boot_loader_hex: str = boot_loader_obj.hexdigest()
 
 # convert hex string into int to use in valid_signature_1 and valid_signature_2 expression
-# floor division at end to make output manageable
-secure_boot_request: int = int(secure_boot_hex, 16) // 10 ** 46
-boot_loader_request: int = int(boot_loader_hex, 16) // 10 ** 46
+
+secure_boot_request: int = int(secure_boot_hex, 16) 
+boot_loader_request: int = int(boot_loader_hex, 16)
+
+# floor division at end to make output manageable, 2 line makes code more legible
+secure_boot_request: int = secure_boot_request // 10 ** 46
+boot_loader_request: int = boot_loader_request // 10 ** 46
 
 # SIMULATED PS3 NONCE GENERATION
 
