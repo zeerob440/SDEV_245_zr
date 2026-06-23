@@ -26,9 +26,30 @@ hashed_input = hash_obj.digest()
 print(hashed_input)
 
 
-all_runes: str = string.ascii_letters
-for rune in string.ascii_letters:
-    print(rune)
+caesar_input: str = input('Enter a message to be encoded: ')
+
+PLAIN_TEXT_RUNES: list = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']    
+CAESAR_RUNES: list = [' ', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W']
+
+
+while True:
+    if caesar_input.isdigit():
+        print("Spell numbers out.")
+        continue
+    else:
+        caesar_list = list(caesar_input.upper())
+        break
+
+encrypted_list: list = []
+
+for rune in caesar_list:
+ cipher_rune = PLAIN_TEXT_RUNES.index(rune)
+ encrypted_list.append(CAESAR_RUNES[cipher_rune])
+
+print(encrypted_list)
+print(PLAIN_TEXT_RUNES)
+
+    
 
 
 
