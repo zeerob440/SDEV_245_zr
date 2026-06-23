@@ -75,8 +75,36 @@ print(decrypted_message)
 
 # DIGITAL SIGNATURE DEMO BELOW
 
+print('SIGNATURE VALIDATION DEMO BELOW.\n')
 
-print (help(rsa))
+# msg to be signed and verified
+MASTERCHIEF_MSG: str ='''
+UNSC SECURE TRANSMISSION\n
+FROM: SIERRA 117
+TO ADM. HOOD\n
+To give the Covenant back their bomb.\n'''
+
+print(f'Message to be signed is: {MASTERCHIEF_MSG}')
+
+# convert msg to bytes
+bytes_msg = MASTERCHIEF_MSG.encode()
+
+# generate public and private key
+public_key, private_key = rsa.newkeys(2048)
+
+#print(public_key)
+
+#print(private_key)
+# sign message
+signature = rsa.sign(bytes_msg, private_key, 'SHA-256')
+
+print(f'Signature is:\n {signature}\n')
+
+verified = rsa.verify(bytes_msg, signature, public_key)
+
+print
+
+
 
 
 
