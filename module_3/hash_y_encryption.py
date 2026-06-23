@@ -14,7 +14,7 @@ X Include a short README explaining your code's functionality
 '''
 print('SHA-256 DEMO BELOW\n')
 # SHA-256 DEMO Below
-user_hash_input: str = 'Enter something to be hashed: '
+user_hash_input: str = input('Enter something to be hashed: ')
 # encode into bytes
 input_string1_bytes = user_hash_input.encode()
 #print(input_string1_bytes)
