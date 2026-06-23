@@ -53,7 +53,7 @@ for rune in caesar_list:
 encrypted_message: str = ''.join(encrypted_list)
 
 print('Encrypted message below.\n')
-print(encrypted_message)
+print(encrypted_message, '\n')
 
 # decryption process
 print('Decrypted message below.\n')
