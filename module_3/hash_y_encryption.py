@@ -1,5 +1,4 @@
 import hashlib
-import string
 import rsa
 '''
 
@@ -46,8 +45,23 @@ for rune in caesar_list:
  cipher_rune = PLAIN_TEXT_RUNES.index(rune)
  encrypted_list.append(CAESAR_RUNES[cipher_rune])
 
-print(encrypted_list)
-print(PLAIN_TEXT_RUNES)
+
+
+encrypted_message = ''.join(encrypted_list)
+
+print('Encrypted message below\n')
+print(encrypted_message)
+
+print('Decrypted message below.\n')
+
+decrypted_list: list = []
+
+for rune in encrypted_list:
+   plain_text_rune = CAESAR_RUNES.index(rune)
+   decrypted_list.append(PLAIN_TEXT_RUNES[plain_text_rune])
+   decrypted_message = ''.join(decrypted_list)
+
+print(decrypted_message)
 
     
 
