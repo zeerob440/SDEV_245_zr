@@ -1,16 +1,21 @@
 import hashlib
 import rsa
+
+# function makes the three demos easier to read by asking for user input to advance between examples
+def AKC():
+   any_key_continue = input('Press any key to move to next demo.\n')
+
 '''
 
 SPECS
 X Choose a language (Python, Java, C/C++, or any language of your choice).
 
-Write an app that generates SHA-256 hashes for input strings or files
+X Write an app that generates SHA-256 hashes for input strings or files
 
-Write an app that uses a simple substitution cipher (Caesar cipher or similar) to encrypt/decrypt input text
+X Write an app that uses a simple substitution cipher (Caesar cipher or similar) to encrypt/decrypt input text
 
-Use OpenSSL or a tool to simulate a digital signature (sign/verify).
-X Include a short README explaining your code's functionality
+X Use OpenSSL or a tool to simulate a digital signature (sign/verify).
+ Include a short README explaining your code's functionality
 '''
 
 print('SHA-256 DEMO BELOW\n')
@@ -26,6 +31,7 @@ hashed_input = hash_obj.digest()
 
 print(f'this is your hashed input: {hashed_input}\n')
 
+AKC()
 
 # CREATE SIMPLE CIPHER 
 print('SIMPLE CIPHER DEMO BELOW.\n')
@@ -35,6 +41,8 @@ CAESAR_RUNES: list = [' ', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'
 
 # input to be encrypted
 caesar_input: str = ' my dogs are named Mia and Rico'
+
+print(f'Message to be converted to cipher text is: {caesar_input}\n')
 
 # Convert input to an all upper case list so input matches PLAIN_TEXT_RUNES and CAESAR_RUNES expectations.
 caesar_list = list(caesar_input.upper())
@@ -72,9 +80,11 @@ for rune in encrypted_list:
    # converts list to string with .join() method
    decrypted_message: str = ''.join(decrypted_list)
 
-print(decrypted_message)
+print(decrypted_message, '\n')
 
 # DIGITAL SIGNATURE DEMO BELOW
+
+AKC()
 
 print('SIGNATURE VALIDATION DEMO BELOW.\n')
 
