@@ -86,6 +86,8 @@ To give the Covenant back their bomb.\n'''
 
 print(f'Message to be signed is: {MASTERCHIEF_MSG}')
 
+
+
 # convert msg to bytes
 bytes_msg = MASTERCHIEF_MSG.encode()
 
@@ -95,14 +97,33 @@ public_key, private_key = rsa.newkeys(2048)
 #print(public_key)
 
 #print(private_key)
-# sign message
+
+# sign message with private_key
 signature = rsa.sign(bytes_msg, private_key, 'SHA-256')
+
+bytes_msg = b'222'
 
 print(f'Signature is:\n {signature}\n')
 
+#encrypt_message with public_key
+encrypt = rsa.encrypt(bytes_msg, public_key)
+
+# receiver side
+
 verified = rsa.verify(bytes_msg, signature, public_key)
 
-print
+print(f' verified is: \n{verified}\n')
+
+decrypt = rsa.decrypt(encrypt, private_key)
+
+decrypt = decrypt.decode()
+
+print(decrypt)
+
+  
+
+
+
 
 
 
