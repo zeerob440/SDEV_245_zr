@@ -12,6 +12,7 @@ Write an app that uses a simple substitution cipher (Caesar cipher or similar) t
 Use OpenSSL or a tool to simulate a digital signature (sign/verify).
 X Include a short README explaining your code's functionality
 '''
+
 print('SHA-256 DEMO BELOW\n')
 # SHA-256 DEMO Below
 user_hash_input: str = input('Enter something to be hashed: ')
@@ -86,39 +87,36 @@ To give the Covenant back their bomb.\n'''
 
 print(f'Message to be signed is: {MASTERCHIEF_MSG}')
 
-
-
 # convert msg to bytes
 bytes_msg = MASTERCHIEF_MSG.encode()
 
 # generate public and private key
 public_key, private_key = rsa.newkeys(2048)
 
-#print(public_key)
-
-#print(private_key)
-
 # sign message with private_key
 signature = rsa.sign(bytes_msg, private_key, 'SHA-256')
 
-bytes_msg = b'222'
+# TEST: attempt to tamper with message
+# bytes_msg = b'222'
+# returned VerificationError, confirms verification works
 
 print(f'Signature is:\n {signature}\n')
 
 #encrypt_message with public_key
 encrypt = rsa.encrypt(bytes_msg, public_key)
 
-# receiver side
-
+message_receiver: str = 'SIMULATED MESSAGE RECEIVER SIDE.\n'
+print(message_receiver)
+# decrypt message with private_key
+decrypt = rsa.decrypt(encrypt, private_key)
 verified = rsa.verify(bytes_msg, signature, public_key)
 
-print(f' verified is: \n{verified}\n')
+print(f' signature verified is: \n{verified}\n')
 
-decrypt = rsa.decrypt(encrypt, private_key)
-
+# decode bytes to string
 decrypt = decrypt.decode()
 
-print(decrypt)
+print(f' decrypted message is:\n{decrypt}')
 
   
 
