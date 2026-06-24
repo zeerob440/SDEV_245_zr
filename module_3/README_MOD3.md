@@ -14,7 +14,7 @@ This program converts message 'My dogs are named Mia and Rico, into cipher text,
     * CAESAR_RUNES contains cipher text order
     * PLAIN_TEXT_RUNES contains the plain text order
 
-element zero (I love saying that I'm a huge Mass Effect fan) were both set to ' ' because they need to match between the lists to decrypt the message, but CAESAR_RUNES 'runes' were offset by -3. 
+element zero (I love saying that I'm a huge Mass Effect fan) were both set to ' ' because they need to match  indices between the lists to decrypt the message, but CAESAR_RUNES 'runes' were offset by -3. 
 
 2. Next it takes the message to be encrypted, makes all 'runes' upper case then breaks it into a list so it can be iterated through.
 
@@ -25,4 +25,9 @@ element zero (I love saying that I'm a huge Mass Effect fan) were both set to ' 
 5. encrypted_list is converted to a string with .join() and the string is printed to the grader.
 
 7. The the message is decrypted using a similar process as encryption and the decrypted message is printed.
+
+## Signature Validation
+
+This demo asymmetrically encrypts MASTERCHEIF_MSG signs and validates using the rsa library. Next it prints the signature hash to the grader A message transmission is simulated. Next the signature is verified, and prints the encryption method 'SHA-256'. The message is decrypted and printed to the user. 
+
 

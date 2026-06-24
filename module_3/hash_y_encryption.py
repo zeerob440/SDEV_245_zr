@@ -121,12 +121,12 @@ print(message_receiver)
 decrypt = rsa.decrypt(encrypt, private_key)
 verified = rsa.verify(bytes_msg, signature, public_key)
 
-print(f' signature verified is: \n{verified}\n')
+print(f'signature verified is: \n{verified}\n')
 
 # decode bytes to string
 decrypt = decrypt.decode()
 
-print(f' decrypted message is:\n{decrypt}')
+print(f'decrypted message is:\n{decrypt}')
 
   
 
