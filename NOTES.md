@@ -551,5 +551,24 @@ Plain text -> SHA-256 -> Hashed text
 6. File integrity checking (CIA Triad)
 
 
+### Software defense and offensive TTPs
+
+1. Open Worldwide Application Security Project (OWASP)
+    * non-profit dedicated to secure coding 
+    * provides guidelines for secure code writing 
+    * publishes OWASP Top 10 
+
+1. Defensive TTPs
+    * input validation- never trust user input, it always sucks
+    * always prevent attacks at the earliest processing step, that starts at input
+    * define min/max length of data
+    * Web executable script files are suggested not to be allowed such as aspx, asp, css, swf, xhtml, rhtml, shtml, jsp, js, pl, php, cgi.
+
+2. Offensive TTPs
+    * SQL injection, inject SQL code into a database query.
+    * Cross Site Scripting (XSS) injecting <script> into queries
+    * buffer overflow, LLLs vulnerable C, C++, FORTRAN
+
+
 
 
