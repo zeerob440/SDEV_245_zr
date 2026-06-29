@@ -17,30 +17,53 @@ Explain the role of entropy and key generation in their implementation.
 '''
 def superSecretSauce():
 
-    message = input('Enter a message to be hashed, encrypted, and transmitted:\n>>>')
+    message: str = input('Enter a message to be hashed, encrypted, and transmitted:\n>>>')
+    # add salt
+    salt_runes: list = list(string.ascii_letters)
+    #print(salt_runes)
+    rand_range: int = random.randint(33, 71)
+    salted_list: list = []
+
+    # create salt string
+    for i in range(rand_range):
+         random_salt_rune: int = random.randint(0, 51)
+         selected_salt = (salt_runes[random_salt_rune])
+         salted_list.append(selected_salt)
+    processed_salt = ''.join(salted_list)
+
+    print(processed_salt)
+
+         
+         
 
 def nedry():
+    
     ydsmw: str = "YOU DIDN'T SAY THE MAGIC WORD!"
     
     for i in range(10000):
         print (ydsmw)
-        exit()
 
+# Simulates RBAC 
+def permissions():
+    # validate user Role role
+    attempt: int = 0
+    while attempt <= 3:
+            role = input(
+'''SIMULATES RBAC, ENTER 'Admin' to access encryption function, otherwise enter something else.\n
+Enter your role:\n>>>''')
+            if role == 'Admin':
+                # access encryption function. 
+                superSecretSauce()
+                # increment attempt after each attempt instance. 
+            else:
+                attempt += 1
+            # dump user if too many invalid attempts made. 
+            if attempt == 3:
+                 nedry()
+                 exit()
 
-
-# RBAC required? 
-class Permissions:
-    def __init__(self, role):
-        self.__role = input('Enter your role:\n>>>')
-
-if Permissions.__role == "Admin":
-    superSecretSauce()
-else:
-    
-    
-
-
-
+# start program
+permissions()
 
 
 # hash input
