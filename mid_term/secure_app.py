@@ -29,10 +29,20 @@ def superSecretSauce():
          random_salt_rune: int = random.randint(0, 51)
          selected_salt = (salt_runes[random_salt_rune])
          salted_list.append(selected_salt)
-    processed_salt = ''.join(salted_list)
+    processed_salt: str = ''.join(salted_list)
+    
+    r_salted_list: list = []
+    for i in range(rand_range):
+         random_salt_rune: int = random.randint(0, 51)
+         r_selected_salt = (salt_runes[random_salt_rune])
+         r_salted_list.append(r_selected_salt)
+
+    r_processed_salt: str = ''.join(r_salted_list)
+ 
 
     print(processed_salt)
-
+    #print(r_processed_salt)
+    print(processed_salt + message )
          
          
 
