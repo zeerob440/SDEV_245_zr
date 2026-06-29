@@ -29,6 +29,8 @@ hash_obj = hashlib.sha256(input_string1_bytes)
 
 hashed_input = hash_obj.digest()
 
+
+
 print(f'this is your hashed input: {hashed_input}\n')
 
 AKC()

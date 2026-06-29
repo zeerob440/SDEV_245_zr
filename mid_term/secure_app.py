@@ -18,7 +18,16 @@ Explain the role of entropy and key generation in their implementation.
 def superSecretSauce():
 
     message: str = input('Enter a message to be hashed, encrypted, and transmitted:\n>>>')
-    # add salt
+
+    msg_bytes = message.encode()
+    print(msg_bytes)
+
+    msg_obj = (hashlib.sha256(msg_bytes).digest())
+    print(msg_obj)
+
+    
+    
+    ''' add salt
     salt_runes: list = list(string.ascii_letters)
     #print(salt_runes)
     rand_range: int = random.randint(33, 71)
@@ -43,18 +52,18 @@ def superSecretSauce():
     print(processed_salt)
     #print(r_processed_salt)
     print(processed_salt + message )
+    '''
          
-         
-
 def nedry():
     
     ydsmw: str = "YOU DIDN'T SAY THE MAGIC WORD!"
     
     for i in range(10000):
-        print (ydsmw)
+        print(ydsmw)
 
 # Simulates RBAC 
 def permissions():
+   
     # validate user Role role
     attempt: int = 0
     while attempt <= 3:
@@ -71,6 +80,9 @@ Enter your role:\n>>>''')
             if attempt == 3:
                  nedry()
                  exit()
+
+    
+
 
 # start program
 permissions()
