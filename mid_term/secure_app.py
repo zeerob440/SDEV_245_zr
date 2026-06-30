@@ -24,19 +24,29 @@ def superSecretSauce():
     #print(msg_bytes)
 
     msg_obj = (hashlib.sha256(msg_bytes).digest())
-    #print(msg_obj)
+    print(msg_obj)
 
     # generate symmetrical key
     sym_key: bytes = Fernet.generate_key()
 
     #instantiate key
-    it_encrypts_data: object = Fernet(sym_key)
+    encrypt_y_decrypt: object = Fernet(sym_key)
 
     #print(sym_key)
 
     # encrypt message
-    encrypted_msg = it_encrypts_data.encrypt(msg_obj)
-    print(encrypted_msg)
+    encrypted_msg: bytes = encrypt_y_decrypt.encrypt(msg_obj)
+    #print(encrypted_msg)
+    #return encrypted_msg
+
+    decrypted_message = encrypt_y_decrypt.decrypt(encrypted_msg)
+    # print(decrypted_message)
+
+    interpret_hash = hashlib.sha256(decrypted_message).digest()
+
+    #cleaned_msg = decrypted_message.decode()
+    print(interpret_hash)
+
 
 
     ''' add salt
