@@ -1,11 +1,12 @@
 import random
 import hashlib
 import string
+from cryptography.fernet import Fernet
 
 '''
 SPECS
 In this project, students will create a small application or script that:
-    Assignment contains same RBAC preamble as all other assignments, uncertain if include in specs.
+    Assignment contains same RBAC preamble as all other assignments, uncertain if included in specs.
     Accepts user input (e.g., a message or file)
     Hashes the input using SHA-256 to ensure integrity
     Encrypts the input using symmetric encryption (e.g., AES)
@@ -19,14 +20,25 @@ def superSecretSauce():
 
     message: str = input('Enter a message to be hashed, encrypted, and transmitted:\n>>>')
 
-    msg_bytes = message.encode()
-    print(msg_bytes)
+    msg_bytes: bytes = message.encode()
+    #print(msg_bytes)
 
     msg_obj = (hashlib.sha256(msg_bytes).digest())
-    print(msg_obj)
+    #print(msg_obj)
 
-    
-    
+    # generate symmetrical key
+    sym_key: bytes = Fernet.generate_key()
+
+    #instantiate key
+    it_encrypts_data: object = Fernet(sym_key)
+
+    #print(sym_key)
+
+    # encrypt message
+    encrypted_msg = it_encrypts_data.encrypt(msg_obj)
+    print(encrypted_msg)
+
+
     ''' add salt
     salt_runes: list = list(string.ascii_letters)
     #print(salt_runes)
@@ -48,7 +60,6 @@ def superSecretSauce():
 
     r_processed_salt: str = ''.join(r_salted_list)
  
-
     print(processed_salt)
     #print(r_processed_salt)
     print(processed_salt + message )
