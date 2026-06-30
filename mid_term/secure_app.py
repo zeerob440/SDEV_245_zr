@@ -21,31 +21,38 @@ def superSecretSauce():
     message: str = input('Enter a message to be hashed, encrypted, and transmitted:\n>>>')
 
     msg_bytes: bytes = message.encode()
-    #print(msg_bytes)
+    print(msg_bytes)
 
-    msg_obj = (hashlib.sha256(msg_bytes).digest())
-    print(msg_obj)
+    og_hash = (hashlib.sha256(msg_bytes).digest())
+    print(hash)
 
     # generate symmetrical key
     sym_key: bytes = Fernet.generate_key()
 
     #instantiate key
-    encrypt_y_decrypt: object = Fernet(sym_key)
+    encrypt_y_decrypt: Fernet = Fernet(sym_key)
 
     #print(sym_key)
 
     # encrypt message
-    encrypted_msg: bytes = encrypt_y_decrypt.encrypt(msg_obj)
+    encrypted_msg: bytes = encrypt_y_decrypt.encrypt(msg_bytes)
     #print(encrypted_msg)
     #return encrypted_msg
 
     decrypted_message = encrypt_y_decrypt.decrypt(encrypted_msg)
-    # print(decrypted_message)
+    #print(decrypted_message)
+    verify_hash = hashlib.sha256(decrypted_message).digest()
 
-    interpret_hash = hashlib.sha256(decrypted_message).digest()
+    if og_hash == verify_hash:
+         print(decrypted_message.decode())
+
+    else:
+         print('Data integrity not validated.\n')
+
+
 
     #cleaned_msg = decrypted_message.decode()
-    print(interpret_hash)
+
 
 
 
