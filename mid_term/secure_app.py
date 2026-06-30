@@ -7,10 +7,10 @@ from cryptography.fernet import Fernet
 SPECS
 In this project, students will create a small application or script that:
     Assignment contains same RBAC preamble as all other assignments, uncertain if included in specs.
-    Accepts user input (e.g., a message or file)
-    Hashes the input using SHA-256 to ensure integrity
-    Encrypts the input using symmetric encryption (e.g., AES)
-    Decrypts the content and verifies its integrity via hash comparison
+    X Accepts user input (e.g., a message or file)
+    X Hashes the input using SHA-256 to ensure integrity
+    X Encrypts the input using symmetric encryption (e.g., AES)
+    X Decrypts the content and verifies its integrity via hash comparison
 2. Students must also:
 
 Write a short explanation describing how their solution upholds confidentiality, integrity, and availability
@@ -39,6 +39,7 @@ def superSecretSauce():
     #print(encrypted_msg)
     #return encrypted_msg
 
+
     decrypted_message = encrypt_y_decrypt.decrypt(encrypted_msg)
     #print(decrypted_message)
     verify_hash = hashlib.sha256(decrypted_message).digest()
@@ -48,13 +49,6 @@ def superSecretSauce():
 
     else:
          print('Data integrity not validated.\n')
-
-
-
-    #cleaned_msg = decrypted_message.decode()
-
-
-
 
     ''' add salt
     salt_runes: list = list(string.ascii_letters)
