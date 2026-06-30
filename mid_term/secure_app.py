@@ -22,8 +22,9 @@ if __name__ == '__main__':
     attempt: int = 0
     while attempt <= 3:
         role = input(
-    '''SIMULATES RBAC, ENTER 'Admin' to access encryption function, otherwise enter something else.\n
-    Enter your role:\n>>>''')
+    '''\nSIMULATES RBAC, ENTER 'Admin' TO ACCESS HASHING AND ENCRYPTION FUNCTION,
+OTHERWISE ENTER SOMETHING ELSE.\n
+Enter your role:\n>>>''')
         
         if role == 'Admin':
             # access encryption function. 
@@ -33,7 +34,7 @@ if __name__ == '__main__':
 
             # pass unpacked values through decryption(), print decrypted message. 
             secure_verified_transmission = decryption(og_hash, encrypt_y_decrypt, encrypted_msg)
-            print(f'SECURE VERIFIED TRANSMISSION FOLLOWS:\n\n{secure_verified_transmission}\n\nEND TRANSMISSION')
+            print(f'\nSECURE VERIFIED TRANSMISSION FOLLOWS:\n\n{secure_verified_transmission}\n\nEND TRANSMISSION')
             # increment attempt after each attempt instance. 
         else:
             attempt += 1
