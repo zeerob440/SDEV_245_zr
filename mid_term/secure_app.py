@@ -1,12 +1,11 @@
-import random
-import hashlib
-import string
-from cryptography.fernet import Fernet
+from super_secret import superSecretSauce
+from decrypt import decryption
+from access_denied import nedry
 
 '''
 SPECS
 In this project, students will create a small application or script that:
-    Assignment contains same RBAC preamble as all other assignments, uncertain if included in specs.
+    ? Assignment contains same RBAC preamble as all other assignments, uncertain if included in specs.
     X Accepts user input (e.g., a message or file)
     X Hashes the input using SHA-256 to ensure integrity
     X Encrypts the input using symmetric encryption (e.g., AES)
@@ -16,101 +15,30 @@ In this project, students will create a small application or script that:
 Write a short explanation describing how their solution upholds confidentiality, integrity, and availability
 Explain the role of entropy and key generation in their implementation.
 '''
-def superSecretSauce():
 
-    message: str = input('Enter a message to be hashed, encrypted, and transmitted:\n>>>')
-
-    msg_bytes: bytes = message.encode()
-    print(msg_bytes)
-
-    og_hash = (hashlib.sha256(msg_bytes).digest())
-    print(hash)
-
-    # generate symmetrical key
-    sym_key: bytes = Fernet.generate_key()
-
-    #instantiate key
-    encrypt_y_decrypt: Fernet = Fernet(sym_key)
-
-    #print(sym_key)
-
-    # encrypt message
-    encrypted_msg: bytes = encrypt_y_decrypt.encrypt(msg_bytes)
-    #print(encrypted_msg)
-    #return encrypted_msg
-
-
-    decrypted_message = encrypt_y_decrypt.decrypt(encrypted_msg)
-    #print(decrypted_message)
-    verify_hash = hashlib.sha256(decrypted_message).digest()
-
-    if og_hash == verify_hash:
-         print(decrypted_message.decode())
-
-    else:
-         print('Data integrity not validated.\n')
-
-    ''' add salt
-    salt_runes: list = list(string.ascii_letters)
-    #print(salt_runes)
-    rand_range: int = random.randint(33, 71)
-    salted_list: list = []
-
-    # create salt string
-    for i in range(rand_range):
-         random_salt_rune: int = random.randint(0, 51)
-         selected_salt = (salt_runes[random_salt_rune])
-         salted_list.append(selected_salt)
-    processed_salt: str = ''.join(salted_list)
-    
-    r_salted_list: list = []
-    for i in range(rand_range):
-         random_salt_rune: int = random.randint(0, 51)
-         r_selected_salt = (salt_runes[random_salt_rune])
-         r_salted_list.append(r_selected_salt)
-
-    r_processed_salt: str = ''.join(r_salted_list)
- 
-    print(processed_salt)
-    #print(r_processed_salt)
-    print(processed_salt + message )
-    '''
-         
-def nedry():
-    
-    ydsmw: str = "YOU DIDN'T SAY THE MAGIC WORD!"
-    
-    for i in range(10000):
-        print(ydsmw)
-
-# Simulates RBAC 
-def permissions():
-   
-    # validate user Role role
+if __name__ == '__main__':   
+# validate user Role for RBAC simulation
+# allows user to three attempts before booting them out.
     attempt: int = 0
     while attempt <= 3:
-            role = input(
-'''SIMULATES RBAC, ENTER 'Admin' to access encryption function, otherwise enter something else.\n
-Enter your role:\n>>>''')
-            if role == 'Admin':
-                # access encryption function. 
-                superSecretSauce()
-                # increment attempt after each attempt instance. 
-            else:
-                attempt += 1
-            # dump user if too many invalid attempts made. 
-            if attempt == 3:
-                 nedry()
-                 exit()
+        role = input(
+    '''SIMULATES RBAC, ENTER 'Admin' to access encryption function, otherwise enter something else.\n
+    Enter your role:\n>>>''')
+        
+        if role == 'Admin':
+            # access encryption function. 
+            encrypted_packet = superSecretSauce()
+            # unpack superSecretSauce returns
+            encrypted_msg, og_hash, encrypt_y_decrypt = encrypted_packet
 
-    
+            # pass unpacked values through decryption(), print decrypted message. 
+            secure_verified_transmission = decryption(og_hash, encrypt_y_decrypt, encrypted_msg)
+            print(f'SECURE VERIFIED TRANSMISSION FOLLOWS:\n\n{secure_verified_transmission}\n\nEND TRANSMISSION')
+            # increment attempt after each attempt instance. 
+        else:
+            attempt += 1
+        # dump user after 3 invalid attempts made. 
+        if attempt == 3:
+            nedry()
+            exit()
 
-
-# start program
-permissions()
-
-
-# hash input
-# hash with SHA-256
-# Encrypt with AES symmetrical encryption
-# Decrypt, verify with hash comparison. 
