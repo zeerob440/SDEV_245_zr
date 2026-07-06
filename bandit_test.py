@@ -1,0 +1,3 @@
+
+password: str = 'guest'
+

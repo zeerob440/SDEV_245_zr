@@ -587,6 +587,49 @@ Plain text -> SHA-256 -> Hashed text
         * emerging threats previously unknown
 
 3. AppSec
+    - Application security refers to the process of identifying and repairing vulnerabilities in application software—from development to deployment—to prevent unauthorized access, modification, or misuse.
+
+4. AppSec has 5 properties
+    * Authentication
+    * Authorization
+    * Encryption
+    * Logging - keystroke records, access logs.
+    * Testing - pen testing, code analysis, dynamic scanning
+
+5. benefits of AppSec
+    * decreased stoppages
+    * Early detection of issues
+    * customer confidence 
+    * Improved compliance
+    * increased cost savings
+    * cyberattack interdiction 
+    
+6. How to Apply AppSec
+    * Risk assessment & planning
+    * Secure design - follow OWASP guidelines
+    * Review code and test
+    * sec test and evaluation - pen testing
+    * deployment monitoring 
+
+7. Application Security Testing (AST)
+
+8. Common Vulnerabilities & Exposures (database) CVE
+    - a database full of common attack vectors 
+
+9. Common Vulnerabilities Scoring System. CVSS
+    - cvss provides score float(0-10) on volatility of a known risk
+
+10. Common Weakness Enumeration (CWE)
+    * developed by MITRE
+    * scope of hardware and software
+    * works similar to Python exception hierarchy 
+    * cwe provide a yearly top 25
+
+
+
+
+
+
 
 
 
