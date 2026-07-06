@@ -585,6 +585,9 @@ Plain text -> SHA-256 -> Hashed text
 
     * zero day_exploits
         * emerging threats previously unknown
-        
+
+3. AppSec
+
+
 
 
