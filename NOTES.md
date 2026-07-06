@@ -569,6 +569,22 @@ Plain text -> SHA-256 -> Hashed text
     * Cross Site Scripting (XSS) injecting <script> into queries
     * buffer overflow, LLLs vulnerable C, C++, FORTRAN
 
+## MOD 5 notes
 
+1. Cyberattack
+    - A cyberattack is a deliberate attempt to gain unauthorized access to a computer network, computer system or digital device. The goal is to steal, expose, alter, disable or destroy data, applications or other assets.
+
+2. Cyberattack spectrum, like CBRNE but for computers
+    * malware
+        * Ransomware
+        * trojan horses
+        * scareware - prints scary messages
+        * spyware - sits... and watches. 
+        * Rootkits - grants admin control
+        * self-replication worms
+
+    * zero day_exploits
+        * emerging threats previously unknown
+        
 
 
