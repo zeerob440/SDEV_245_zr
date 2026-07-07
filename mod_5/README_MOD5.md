@@ -14,7 +14,10 @@ and also fails to authorize a user as a result because as written any user can s
 they are any instance of any other user. 
 The attacker could just use any user_id and gain unauthorized access.
 
-```research implementation```
+
+```research implementation repair```
+
+- explanation here 
 
 2. Broken Access (Python)
 
@@ -26,6 +29,11 @@ def get_account(user_id):
 ```
 - This example allows a user to interact directly with a database with out authentication or authorization, it returns the first user record that matches user input as a dict with user, user_id
 
+```
+# repair here
+```
+- explain
+
 3. Cryptographic Failure (Java)
 ```
 public String hashPassword(String password) throws NoSuchAlgorithmException {
@@ -34,6 +42,14 @@ public String hashPassword(String password) throws NoSuchAlgorithmException {
     byte[] digest = md.digest();
     return DatatypeConverter.printHexBinary(digest);
 ```
+- explain problem here
+
+```
+repair here
+```
+
+- explain repair here
+
 4. Cryptographic Failure (Python)
 
 ```
@@ -75,4 +91,88 @@ ResultSet rs = stmt.executeQuery();
 ```
 - This secure implementation creates a parameterized statement with PreparedStatement, which interdicts SQL injection.
 
-6.
+6. Injection (JavaScript)
+
+```
+app.get('/user', (req, res) => {
+    // Directly trusting query parameters can lead to NoSQL injection
+    db.collection('users').findOne({ username: req.query.username }, (err, user) => {
+        if (err) throw err;
+        res.json(user);
+    });
+});
+```
+
+- explain problem here 
+```
+reimplement here
+```
+
+- explain repair here 
+
+7. Insecure Design (Python)
+```
+@app.route('/reset-password', methods=['POST'])
+def reset_password():
+    email = request.form['email']
+    new_password = request.form['new_password']
+    user = User.query.filter_by(email=email).first()
+    user.password = new_password
+    db.session.commit()
+    return 'Password reset'
+```
+- This implementation is insecure because if an attacker knows the user's email, they can simply 
+    change the user's password to something the attacker knows. 
+
+```
+# dump whatever framework this implemented with. 
+
+```
+
+- explain here
+
+
+8. Software and Data Integrity Failures (HTML)
+
+```
+<script src="https://cdn.example.com/lib.js"></script>
+```
+
+- This implementation runs script from a 3rd-party URL, it could contain malicious script. 
+
+```
+repair here
+```
+- explain repair
+
+9. Server Side Request Forgery (HTML)
+
+```
+url = input("Enter URL: ")
+response = requests.get(url)
+print(response.text)
+```
+
+- explain problem here
+
+```
+repair here
+```
+
+- explain repair
+
+10. Identification and Authentication Failures (Java?)
+
+```
+if (inputPassword.equals(user.getPassword())) { 
+    // Login success
+}
+
+```
+- explain problem here
+
+```
+repair here
+```
+
+- explain repair here
