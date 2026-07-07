@@ -7,7 +7,7 @@ def beholdMyStuff():
 print(password)
 
 if password == 'guest':
-    print("pls don't steal my stuff")
+    print("pls don't steal my stuff\n")
     print(beholdMyStuff())
 else:
     print(beholdMyStuff())
