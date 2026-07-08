@@ -41,14 +41,21 @@ public String hashPassword(String password) throws NoSuchAlgorithmException {
     md.update(password.getBytes());
     byte[] digest = md.digest();
     return DatatypeConverter.printHexBinary(digest);
+}
 ```
-- explain problem here
+- MD5 is a weak hashing algorithm, GPUs can calculate them quickly. Therefore, a more computationally costly hashing algorithm should be used. 
 
 ```
-repair here
+public String hashPassword(String password) throws NoSuchAlgorithmException {
+    MessageDigest md = MessageDigest.getInstance("SHA-256");
+    md.update(password.getBytes());
+    byte[] digest = md.digest();
+    return DatatypeConverter.printHexBinary(digest);
+}
 ```
 
-- explain repair here
+
+- Upgrading to a more computationally expensive hashing algorithm will provide better protection.Replacing MD5 with SHA-256 would be less vulnerable to brute force attacks. 
 
 4. Cryptographic Failure (Python)
 
@@ -61,7 +68,7 @@ def hash_password(password):
 - this example uses weak SHA-1 hashing. 
 
 ```
-# correction
+# SECURE REFACTOR
 import hashlib
 
 def hash_password(password):
@@ -69,7 +76,7 @@ def hash_password(password):
 
 ```
 
-- This implementation uses much stronger hashing than SHA-1 with SHA-256.
+- This implementation uses much stronger hashing than SHA-1 with SHA-256.which vastly improves password hashing, and make passwords more secure against brute force attacks.
 
 5. Injection (Java)
 
@@ -125,7 +132,12 @@ def reset_password():
     change the user's password to something the attacker knows. 
 
 ```
-# dump whatever framework this implemented with. 
+# dump whatever framework this implemented with.
+
+# login 
+import hashlib
+
+input()
 
 ```
 
@@ -138,12 +150,16 @@ def reset_password():
 <script src="https://cdn.example.com/lib.js"></script>
 ```
 
-- This implementation runs script from a 3rd-party URL, it could contain malicious script. 
+- This implementation runs script from a third-party URL without a verification hash. As designed it could retrieve a malicious script.  
 
 ```
-repair here
+<!--Refactored script -->
+<script
+    src =">https://cdn.example.com/lib.js"
+    integrity='sha256-34f53e5...'
+<script>
 ```
-- explain repair
+- The refactored version validates the JavaScript program with a sha-256 hash with the integrity attribute. It ensures the JavaScript program is the JavaScript program it expects and not tampered with.  
 
 9. Server Side Request Forgery (HTML)
 
@@ -153,15 +169,25 @@ response = requests.get(url)
 print(response.text)
 ```
 
-- explain problem here
+- This implementation allows the user to directly input an URL. The server would send the request without validating the URL. An attacker could send requests to unapproved URLs
 
 ```
-repair here
+approved_server_lst: list = ['URL1', 'URL2', 'URL3']
+
+url = input('Enter URL: ')
+
+if url in approved_server_lst:
+    response: str = 'URL Approved!'
+    print(response)
+else:
+    print('Sorry, something went wrong!')
+    exit()
+
 ```
 
-- explain repair
+- The refactored implementation checks the user's URL input against an approved list of valid URLs, else it denies access. 
 
-10. Identification and Authentication Failures (Java?)
+10. Identification and Authentication Failures (Java)
 
 ```
 if (inputPassword.equals(user.getPassword())) { 
@@ -169,7 +195,7 @@ if (inputPassword.equals(user.getPassword())) {
 }
 
 ```
-- explain problem here
+- This implementation appears to store plaintext passwords. This is vulnerable because if a attacker gain access to the database, the plaintext password would be available.
 
 ```
 repair here
