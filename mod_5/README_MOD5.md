@@ -27,7 +27,7 @@ def get_account(user_id):
     user = db.query(User).filter_by(id=user_id).first()
     return jsonify(user.to_dict())
 ```
-- This example allows a user to interact directly with a database with out authentication or authorization, it returns the first user record that matches user input as a dict with user, user_id
+- This example allows a user to interact directly with a database without authentication or authorization, it returns the first user record that matches user input as a dict with user, user_id
 
 ```
 # repair here
