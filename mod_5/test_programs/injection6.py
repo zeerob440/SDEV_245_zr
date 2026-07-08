@@ -1,7 +1,6 @@
 import sqlite3
 
-
-# sanatize user input. 
+# sanitize user input. 
 while True:
     user_id = input('enter id: ')
     if user_id.isdigit():
@@ -10,7 +9,6 @@ while True:
     else:
         print('ENTER A DIGIT!\n')
         
-
 connect_db = sqlite3.connect('mod_5/test_programs/the_database.db')
 db_cursor = connect_db.cursor()
 # create SQL query string with placeholder

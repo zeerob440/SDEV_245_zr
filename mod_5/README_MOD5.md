@@ -112,10 +112,30 @@ app.get('/user', (req, res) => {
 
 - This implementation directly trusts user input to parse a database. This is unsecure because SQL Injection can occur.  
 ```
+import sqlite3
 
+# sanitize user input. 
+while True:
+    user_id = input('enter id: ')
+    if user_id.isdigit():
+        user_id = int(user_id)
+        break
+    else:
+        print('ENTER A DIGIT!\n')
+        
+connect_db = sqlite3.connect('mod_5/test_programs/the_database.db')
+db_cursor = connect_db.cursor()
+# create SQL query string with placeholder
+query_string: str='SELECT * FROM users WHERE user_id = ?'
+# use parameterized input
+db_cursor.execute(query_string, (user_id,))
+
+result = db_cursor.fetchone()
+
+print(result)
 ```
 
-- explain repair here 
+- This Python with SQLite3 implementation increases security by introducing input sanitization and parameterized inputs to access the database. This prevents SQL injection attacks. 
 
 7. Insecure Design (Python)
 ```
