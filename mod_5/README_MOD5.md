@@ -11,13 +11,35 @@ app.get('/profile/:userId', (req, res) => {
 
 - This example appears to fail to authenticate a user's user_id,
 and also fails to authorize a user as a result because as written any user can say
-they are any instance of any other user. 
-The attacker could just use any user_id and gain unauthorized access.
+they are any instance of any other user. The attacker could just use any user_id and gain unauthorized access.
 
-- REFACTORED IMPLEMENTATION HERE.
-```research implementation repair```
+- REFACTORED IMPLEMENTATION: This Python implementation first authenticates a user with a password before a user is granted access to the user_id. This refactor prevents users from gaining sensitive information by just using a known user_id to access the system. 
 
+```
+import hashlib
+class User:
+    def __init__(self, name, password, user_id):
+        self.name = name
+        self.password = password
+        self.user_id = user_id
 
+user_1 = User(name = 'Dennis', password = hashlib.sha256("mr goodbytes".encode()).hexdigest(),
+               user_id = '040/#xy/67&')
+
+# get user input
+u_login = input('Enter your username: ')
+u_password = input('Enter your password: ')
+# hash input password
+pass_hash = hashlib.sha256(u_password.encode()).hexdigest()
+
+# compare pass_hash to object attribute password hash
+if u_login == user_1.name and pass_hash == user_1.password:
+    print('Access granted\n')
+    print(f'user_id is: {user_1.user_id}')
+else:
+    print('Access Denied')
+    exit()
+```
 
 2. Broken Access (Python)
 
