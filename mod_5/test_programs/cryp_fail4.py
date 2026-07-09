@@ -7,7 +7,6 @@ def hash_password_bad(bad_password):
 
 print(hash_password_bad(bad_password))
 
-
 # refactored 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
