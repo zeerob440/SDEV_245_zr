@@ -1,10 +1,16 @@
 import hashlib
 import sqlite3
 
-def theOtherDataBase():
+def theOtherDatabase():
+    # database is not accessed without authorization
     connect_to_db = sqlite3.connect('mod_5/test_programs/the_other_db.db')
     cursor = connect_to_db.cursor()
-    query = 'SELECT * FROM '
+    # no user input, parameterized input not required
+    query = 'SELECT phrase FROM user WHERE user_id = 1'
+    cursor.execute(query)
+    result = cursor.fetchone()
+
+    return result
 
 class User:
     def __init__(self, name, password, user_id):
@@ -32,13 +38,15 @@ access_granted: bool = False
 for user in auth_users:
     if u_login == user.name and pass_hash == user.password:
         print('Access granted\n')
-        print(f'user_id is: {user_1.user_id}')
+        print(f'user_id is: {user_1.user_id}\n')
         access_granted: bool = True
         break
 
 # if access_granted == False, deny access.   
 if access_granted == False:
     print('Access Denied')
+    # exit program before database is reachable.
     exit()
-
-print('process good')
+# database query return. 
+print('Database accessed!')
+print(theOtherDatabase())
