@@ -147,7 +147,6 @@ def hash_password(password):
 - REFACTORED IMPLEMENTATION: This implementation uses much stronger hashing than SHA-1 with SHA-256.which vastly improves password hashing, and make passwords more secure against brute force attacks.
 
 - (Problem 4 Source code)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/cryp_fail4.py]
-# SECURE REFACTOR
 
 ```
 import hashlib
