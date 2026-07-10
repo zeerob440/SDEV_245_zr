@@ -15,7 +15,7 @@ they are any instance of any other user. The attacker could just use any user_id
 
 - REFACTORED IMPLEMENTATION: This Python implementation first authenticates a user with a password before a user is granted access to the user_id. This refactor prevents users from gaining sensitive information by just using a known user_id to access the system.
 
-- [Problem1 Refactor](https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/b_access1.py)
+- [Problem 1 Refactor source code](https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/b_access1.py)
 
 ```
 import hashlib
@@ -54,6 +54,9 @@ def get_account(user_id):
 - This example allows a user to interact directly with a database without authentication or authorization, it returns the first user record that matches user input as a dict with user, user_id
 
 - This Python implementation expands on the previous refactor. It uses RBAC to authenticate and authorize a user before the database is accessed. With this implementation authorization and authentication must be verified before the the database can be accessed. 
+
+- (Problem 2 Refactor Source Code: REQ sqlite3)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/b_access2.py]
+
 ```
 import hashlib
 import sqlite3
@@ -109,7 +112,6 @@ print('Database accessed!')
 print(theOtherDatabase())
 ```
 
-
 3. Cryptographic Failure (Java)
 ```
 public String hashPassword(String password) throws NoSuchAlgorithmException {
@@ -142,18 +144,17 @@ def hash_password(password):
 ```
 - This example uses weak SHA-1 hashing. 
 
-
 - REFACTORED IMPLEMENTATION: This implementation uses much stronger hashing than SHA-1 with SHA-256.which vastly improves password hashing, and make passwords more secure against brute force attacks.
-```
-# SECURE REFACTOR
-import hashlib
 
+- (Problem 4 Source code)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/cryp_fail4.py]
+# SECURE REFACTOR
+
+```
+import hashlib
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
 ```
-
-
 
 5. Injection (Java)
 
@@ -166,6 +167,7 @@ ResultSet rs = stmt.executeQuery(query);
 - This example is vulnerable to SQL injection because, because user input becomes part of the query.
 
 - REFACTORED IMPLEMENTATION: This secure implementation creates a parameterized statement with PreparedStatement, which interdicts SQL injection.
+
 ```
 String username = request.getParameter("username");
 String query = "SELECT * FROM users WHERE username = ?";
@@ -190,6 +192,9 @@ app.get('/user', (req, res) => {
 - This implementation directly trusts user input to parse a database. This is unsecure because SQL Injection can occur. 
 
 - REFACTORED IMPLEMENTATION: This Python with SQLite3 implementation increases security by introducing input sanitization and parameterized inputs to access the database. This prevents SQL injection attacks.
+
+- (Problem 6 Refactor: REQ sqlite3)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/injection6.py]
+
 ```
 import sqlite3
 
@@ -230,6 +235,8 @@ def reset_password():
 
 - REFACTORED IMPLEMENTATION: This plain Python implementation requires the user to create an account, then login to the account to change their email. The implementation stores user passwords as hashes, then compares the login_inputs to the stored password hashes to grant access. Else it denies access. 
 
+- (Problem 7 Refactor Source Code)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/insecure_design7.py]
+
 ```
 import hashlib
 
@@ -258,13 +265,6 @@ if login_email == user['email'] and login_hash == user['password']:
 else:
     print('Access Denied')
     exit()
-```
-
-# login 
-import hashlib
-
-input()
-
 ```
 
 8. Software and Data Integrity Failures (HTML)
@@ -297,6 +297,8 @@ print(response.text)
 
 - REFACTORED IMPLEMENTATION: The refactored implementation checks the user's URL input against an approved list of valid URLs, else it denies access.
 
+- (Problem 9 Refactor source code)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/ssrf9.py]
+
 ```
 approved_server_lst: list = ['URL1', 'URL2', 'URL3']
 
@@ -322,6 +324,8 @@ if (inputPassword.equals(user.getPassword())) {
 - This implementation appears to store plaintext passwords. This is vulnerable because if a attacker gain access to the database, the plaintext password would be available.
 
 - REFACTORED IMPLEMENTATION: This Python implementation refactors the original Java implementation. Instead of storing plaintext passwords this implementation stores a sHA-256 hash and a salt value. This increases overall security of the password storage process. 
+
+- (Problem 10 Refactor Source Code)[https://github.com/zeerob440/SDEV_245_zr/blob/main/mod_5/test_programs/auth_id_fail10.py]
 
 ```
 import hashlib
