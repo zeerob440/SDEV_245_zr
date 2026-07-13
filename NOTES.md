@@ -626,6 +626,49 @@ Plain text -> SHA-256 -> Hashed text
     * cwe provide a yearly top 25
 
 
+## mod 6 notes
+
+### wif-fi encryption protocols 
+
+1. Wired Equivalent Privacy (WEP)
+    * est 1997
+    * used 64 and 128 bit keys
+    * obsolete
+2. Wi-Fi Protected Access (WPA)
+    * est 2003 
+    * uses same key (sem encrypt)
+    * uses Temporal Key Integrity Protocol (TKIP) new key for each packet transmission
+    * uses 128 bit key and integrity checks
+3. WPA2
+    * uses AES
+    * currently the most common wifi security protocol
+4. WPA3
+    * newest
+    * better encryption 192 bit ofr 256 bit keys
+    * not fully implemented as of 2026
+    * n7 uses wpa3 over 6e network MU-TH-ER uses wpa3 over 5hz
+
+### open source software (OSS) coding risks
+
+1. Component version may have vulnerable code.
+2. Compromised legitimate packages
+3. Name Spoofing creating a similar sounding name to the package the user wants, inject malicious code
+4. Unmaintained software (lynx)
+5. outdated software
+6. untracked dependencies
+7. License Risk- package might not have a license
+8. Immature Software
+9. unapproved changes
+10. under/over dependencies 
+
+### continuous integration
+
+1.  Continuous integration/continuous development (CI/CD)
+    * Foundational to DevOps
+    * usecase: use automation to prevent merge conflicts on large team projects.
+    * produces testable implementations
+    
+
 
 
 
