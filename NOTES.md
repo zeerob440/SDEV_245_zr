@@ -668,7 +668,33 @@ Plain text -> SHA-256 -> Hashed text
     * usecase: use automation to prevent merge conflicts on large team projects.
     * produces testable implementations
     
-    
+## mod 7 notes
+
+1. typing
+    * dynaminc typing - used in scripting languages, var types can change state during the program.
+    * static typing - used in compiled languages, var types cannot be changed. 
+
+2. software testing 
+    * manual testing - dev try out program 
+    * automated testing - packages do the testing, effectively this means unittest or pytest
+
+3. Software testing levels
+    * unit test - validate the smallest testable unit FAD
+    * Integrations test -validate software components (such as functions) FAE between each other
+    * system testing - validates the entire system with a set of tests that include: function tests, nonfunction tests, UI testing, stress testing and recover testing 
+    * Acceptance testing - validates if the whole system FAE
+
+4. functions tests
+    * function testing- validates application structures FAD
+    * nonfuncton testing - verifies if application functions under adverse conditions, and where it breaks, in other words how well does it FAE
+
+5. test types
+    * API testing functional - tests if APIs FAE in Application 
+    * Exploratory testing functional - lookin' for trouble with edge cases
+    * refression testing functional - validating new structures are not breaking old structures
+    * Sanity testing  functional - validating functions FAE
+    * stress testing nonf - validates where it fails under adverse conditions
+    * performance testing 
 
 
 
