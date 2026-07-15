@@ -691,10 +691,11 @@ Plain text -> SHA-256 -> Hashed text
 5. test types
     * API testing functional - tests if APIs FAE in Application 
     * Exploratory testing functional - lookin' for trouble with edge cases
-    * refression testing functional - validating new structures are not breaking old structures
+    * regression testing functional - validating new structures are not breaking old structures
     * Sanity testing  functional - validating functions FAE
     * stress testing nonf - validates where it fails under adverse conditions
-    * performance testing 
+    * performance testing nonf - how well does it execute with diff workloads
+    * 
 
 
 
