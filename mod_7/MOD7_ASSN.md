@@ -1,13 +1,6 @@
 
 # PART A
 
-FIXME: format. Delete when part a complete
-
-1. Which variable is incorrect?
-2. Why is it incorrect or insecure?
-3. Code refactor
-4. Why refactor corrects issue. 
-
 ## 1 (Java) 
 
 ```
@@ -174,7 +167,7 @@ class Program
 1. Which variable is incorrect?
     - number
 2. Why is it incorrect or insecure?
-    - C languages need integer length to be explicitly declared. number is set at the maximum value of an int datatype which is the maximum values of a 32-bit integer or 2,147,483,647. When int is incremented by one in the program the number would become 2,147,483,648 which in greater than what an int can hold at 32-bits. This program would still compile and but cause an integer overflow runtime error. The number would actually decrement to -2,147,483,648 instead of incrementing 2,147,483,648. Which could cause absolute chaos in an application.
+    - C languages need integer length to be explicitly declared. number is set at the maximum value of an int datatype which is the maximum values of a 32-bit integer or 2,147,483,647. When int is incremented by one in the program the number would become 2,147,483,648 which in greater than what an int can hold at 32-bits. This program would still compile and but cause an integer overflow runtime error. The number would actually ***decrement*** to -2,147,483,648 instead of incrementing 2,147,483,648. Which could cause absolute chaos in an application.
 3. Code refactor
 ```
 using System.
@@ -190,3 +183,121 @@ class Program
 ```
 4. Why refactor corrects issue. 
     by assigning the long datatype to number the program can safely increment to 2,147,483,648 with out causing an integer overflow bug at run time.
+
+# Part B
+
+1. Identify the regular expression code.
+2. Explain why the regex used is incorrect or answer the questions provided.
+3. Correct the code.
+4. Explain why the corrected code fixes the issue.
+
+## 6 (Java)
+
+```
+import java.util.regex.*;
+
+public class URLExtractor {
+    public static void main(String[] args) {
+        String text = "Visit my website at http://www.url example.com";
+        String regex = "https?://.+";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+
+        while (matcher.find()) {
+            System.out.println("URL: " + matcher.group());
+        }
+    }
+}
+```
+1. Identify the regular expression code.
+    - the regex is https?://.+
+2. Explain why the regex used is incorrect or answer the questions provided.
+    - the regex in this example allows http or https,followed by "://" and lastly followed by 1 or more chars. This regex is a little too permissive since it allows one or more of any character including whitespace at the end of the expression.
+3. Correct the code.
+```https?://\\S+```
+4. Explain why the corrected code fixes the issue.
+    - This allows for https or http followed by :// but it restricts the match to one or more non-whitespace characters. This prevents more words added after the URL
+
+## 7 (Java)
+
+```
+import java.util.regex.*;
+import java.util.Scanner;
+
+public class ZipCode {
+    public static void main(String[] args) {
+
+        try (Scanner scanner = new Scanner(System.in)) {
+
+            Pattern zipPattern = Pattern.compile("^\\d{5}(\\d{4})?$");
+            System.out.println("Enter a Zipcode as xxxxx or xxxxx-xxxx: ");
+            String zipCode = scanner.nextLine();
+
+            if ( !zipPattern.matcher(zipCode).matches() ) {
+                System.out.println("Incorrect Zipcode");
+            }
+            else {
+                System.out.println("Correct Zip");
+            }
+        }
+    }
+}
+```
+1. Identify the regular expression code.
+    - ^\\d{5}(\\d{4})?$
+2. Explain why the regex used is incorrect or answer the questions provided.
+    - This regex does not allow a dash between the 5-digit zip code block and the optional 4-digit zipcode block. 
+3. Correct the code.
+```
+^\\d{5}(-\\d{4})?$
+```
+4. Explain why the corrected code fixes the issue.
+    - This corrects the issue by allowing a dash between the 5-digit block and the optional 4-digit block. This is done by placing the dash inside the optional expression.
+
+## 8 (HTML)
+```
+<!DOCTYPE html>
+<!-- HTML Form to validate a phone number --> 
+<html>
+<head>
+<style>
+    input:invalid {border: red solid 3px;}
+</style>
+</head>
+
+<p>
+  <label>
+    Enter your phone number in the format 123-456-7890
+    <input
+      name="tel1"
+      type="tel"
+      pattern="[0-9]{4}"
+      placeholder="###"
+      aria-label="3-digit area code"
+      size="2" 
+    />
+    -
+    <input
+      name="tel2"
+      type="tel"
+      pattern="\d{3}"
+      placeholder="###"
+      aria-label="3-digit prefix"
+      size="2" 
+    />
+    -
+    <input
+      name="tel3"
+      type="tel"
+      pattern="\D{4}"
+      placeholder="####"
+      aria-label="4-digit number"
+      size="3" 
+    />
+  </label>
+</p>
+</html>
+```
+
+
