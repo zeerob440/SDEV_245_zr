@@ -155,4 +155,38 @@ for number in range(num_count):
 print("The sum of the numbers you entered is:", total)
 ```
 4. Why refactor corrects issue. 
-    - This refactor properly declares the three undeclared variable which prevents the SyntaxError at run time. Type hints are added for legibility and type conversions are enforced throughout. 
+    - This refactor properly declares the three undeclared variable which prevents the SyntaxError at run time. Type hints are added for legibility and type conversions are enforced throughout.
+
+## 5 (C#) 
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int number = int.MaxValue;
+        number += 1;
+        Console.WriteLine("The incremented value is: " + number);
+    }
+}
+```
+1. Which variable is incorrect?
+    - number
+2. Why is it incorrect or insecure?
+    - C languages need integer length to be explicitly declared. number is set at the maximum value of an int datatype which is the maximum values of a 32-bit integer or 2,147,483,647. When int is incremented by one in the program the number would become 2,147,483,648 which in greater than what an int can hold at 32-bits. This program would still compile and but cause an integer overflow runtime error. The number would actually decrement to -2,147,483,648 instead of incrementing 2,147,483,648. Which could cause absolute chaos in an application.
+3. Code refactor
+```
+using System.
+class Program
+{
+    static void Main(string[] args)
+    {
+        long number = int.MaxValue;
+        number += 1;
+        Console.WriteLine("The incremented value is: " + number);
+    }
+}
+```
+4. Why refactor corrects issue. 
+    by assigning the long datatype to number the program can safely increment to 2,147,483,648 with out causing an integer overflow bug at run time.
