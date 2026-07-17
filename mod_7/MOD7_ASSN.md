@@ -401,12 +401,12 @@ validate_filename(filename_input)
 1. Identify the regular expression code.
     - ^[\s]+\.(java,py,cs,txt)$
 2. Explain why the regex used is incorrect or answer the questions provided.
-    - This expression allows whitespaces in a filepath which is problematic. There is a syntax error in the () commas do not delimit choices in regex, | does that.
+    - This expression allows whitespaces in a filepath which is problematic. There is a syntax error in the () commas do not represent OR statements in regex. As written the commas are literal commas. 
 3. Correct the code.
 ```
 ^[\S]+\.(java|py|cs|txt)$
 ```
 4. Explain why the corrected code fixes the issue.
-    - The corrected expression requires non-white space chars and correctly delimits choice matches. 
+    - The corrected expression requires non-white space chars and correctly uses OR operators. 
 
 
