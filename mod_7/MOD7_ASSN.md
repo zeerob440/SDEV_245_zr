@@ -191,7 +191,7 @@ class Program
 3. Correct the code.
 4. Explain why the corrected code fixes the issue.
 
-## 6 (Java)
+## 1 (Java)
 
 ```
 import java.util.regex.*;
@@ -219,7 +219,7 @@ public class URLExtractor {
 4. Explain why the corrected code fixes the issue.
     - This allows for https or http followed by :// but it restricts the match to one or more non-whitespace characters. This prevents more words added after the URL
 
-## 7 (Java)
+## 2 (Java)
 
 ```
 import java.util.regex.*;
@@ -255,7 +255,7 @@ public class ZipCode {
 4. Explain why the corrected code fixes the issue.
     - This corrects the issue by allowing a dash between the 5-digit block and the optional 4-digit block. This is done by placing the dash inside the optional expression.
 
-## 8 (HTML)
+## 3 (HTML)
 ```
 <!DOCTYPE html>
 <!-- HTML Form to validate a phone number --> 
@@ -299,5 +299,61 @@ public class ZipCode {
 </p>
 </html>
 ```
+1. Identify the regular expression code.
+    - [0-9]{4}, \d{3}, \D{4}
+2. Explain why the regex used is incorrect or answer the questions provided.
+    - [0-9]{4}, this code allows 4 digits but only 3 are needed
+    - \d{3}, this code is fine, but HTML field size is set to 2
+    - \D{4} this code allows non-digit characters, and the HTML field size is too small
+3. Correct the code.
+```
+<!DOCTYPE html>
+<!-- HTML Form to validate a phone number --> 
+<html>
+<head>
+<style>
+    input:invalid {border: red solid 3px;}
+</style>
+</head>
+<body> <!-- body tag missing in original code -->
+<p>
+  <label>
+    Enter your phone number in the format 123-456-7890
+    <input
+      name="tel1"
+      type="tel"
+      pattern="/d{3}"
+      placeholder="###"
+      aria-label="3-digit area code"
+      size="3" 
+    />
+    -
+    <input
+      name="tel2"
+      type="tel"
+      pattern="\d{3}"
+      placeholder="###"
+      aria-label="3-digit prefix"
+      size="3" 
+    />
+    -
+    <input
+      name="tel3"
+      type="tel"
+      pattern="\d{4}"
+      placeholder="####"
+      aria-label="4-digit number"
+      size="4" 
+    />
+  </label>
+</p>
+</body>
+</html>
+```
+4. Explain why the corrected code fixes the issue.
+    - This refactors the original code by ensuring all regex accept the correct quantity of digits and the field sizes matched the expected input lengths for a typical phone number. Additionally, the <body> tags were missing in the HTML. 
+
+## 4 (Python)
+
 
 
