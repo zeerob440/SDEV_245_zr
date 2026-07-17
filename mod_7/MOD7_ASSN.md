@@ -186,11 +186,6 @@ class Program
 
 # Part B
 
-1. Identify the regular expression code.
-2. Explain why the regex used is incorrect or answer the questions provided.
-3. Correct the code.
-4. Explain why the corrected code fixes the issue.
-
 ## 1 (Java)
 
 ```
@@ -355,5 +350,63 @@ public class ZipCode {
 
 ## 4 (Python)
 
+```
+import re
+
+def validate_date(date_str):
+    pattern = r"^(1[1-9]|1[0-2])/(0[1-9][12][0-9]|3[01])/\w{4}$"
+    
+    # Check if the date matches the pattern
+    if re.match(pattern, date_str):
+        print("Valid date format.")
+    else:
+        print("Invalid date format. Please enter the date in the format MM/DD/YYYY.")
+
+date_input = input("Please enter a date in the format MM/DD/YYYY: ")
+validate_date(date_input)
+```
+
+1. Identify the regular expression code.
+    - ^(1[1-9]|1[0-2])/(0[1-9][12][0-9]|3[01])/\w{4}$
+2. Explain why the regex used is incorrect or answer the questions provided.
+    - (1[1-9]|1[0-2]), this regex is supposed to match a MM date, however both digits must lead with 1.
+    - /(0[1-9][12][0-9]|3[01]) this expression matches 01-31, it functions as expected.
+    - /\w{4}$ this expression matches chars instead of digits. 
+3. Correct the code.
+```
+^(0[1-9]|1[0-2])/(0[1-9][12][0-9]|3[01])/\d{4}$
+```
+4. Explain why the corrected code fixes the issue.
+    - this implementation allows the leading MM digit to be 0, and does not allow the YYYY value to contain anything but digits. 
+
+## 5 (Python)
+
+```
+import re
+
+def validate_filename(filename):
+    # Regular expression pattern for a filename with an extension
+    pattern = r"^[\s]+\.(java,py,cs,txt)$"
+    
+    # Check if the filename matches the pattern
+    if re.match(pattern, filename):
+        print("Valid filename format.")
+    else:
+        print("Invalid filename format. Please enter a filename with an extension.")
+
+filename_input = input("Please enter a filename containing code with one of the following extensions: java, py, cs, txt")
+validate_filename(filename_input)
+```
+
+1. Identify the regular expression code.
+    - ^[\s]+\.(java,py,cs,txt)$
+2. Explain why the regex used is incorrect or answer the questions provided.
+    - This expression allows whitespaces in a filepath which is problematic. There is a syntax error in the () commas do not delimit choices in regex, | does that.
+3. Correct the code.
+```
+^[\S]+\.(java|py|cs|txt)$
+```
+4. Explain why the corrected code fixes the issue.
+    - The corrected expression requires non-white space chars and correctly delimits choice matches. 
 
 
