@@ -698,7 +698,21 @@ Plain text -> SHA-256 -> Hashed text
     * 
 
 
+## mod 8 notes
 
+1. SSDLC
+    -secure software development lifecycle
+    - security considerations should be designed into all phases of SDlC (no shit, ya think?)
+    - do pen testing during testing phase
+
+2. Shift Security Left (buzzword)
+    - design the app to be secure from the beginning of the project instead of at the end.
+    - security vulnerabilities are more costly to fix when the application is mature, than when it is still under development
+
+3. secure software ethics
+    - software has proliferated to the point that safety and social considerations must be hardcode into applications
+    - disclose if hacked.
+    - 
 
 
 
