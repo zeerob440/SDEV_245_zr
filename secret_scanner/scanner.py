@@ -1,19 +1,26 @@
 import os
 import re
 
+
+
 '''
 regex pattern function, this function searches for strings that match
 potential sensitive information in selected files. 
 ''' 
 def regexPatterns(path, line_no, line):
-    
+
+    # flag, evaluates to true is a secret is found. value is returned to scan() 
+    secret_found: bool = False
+
     #PWORD_SEARCH_PATTERN matches 'password', allows optional whitespace before '=' and requires a non-empty password after '='.
     PWORD_SEARCH_PATTERN = r"password\s*=\S+"
 
     pmatch = re.search(PWORD_SEARCH_PATTERN, line, re.IGNORECASE)
         
     if pmatch:
-        print(f'Possible password found at in file: {path}, line number:{line_no}, match: {line}')
+        print(f'Possible password found in file: {path}, line number:{line_no}, match: {line}')
+        secret_found: bool = True
+      
 
     #UNAME_SEARCH_PATTERN matches 'username', allows optional whitespace before '=' and requires a non-empty username after '='.
     USERNAME_SEARCH_PATTERN = r"username\s*=\S+"
@@ -21,7 +28,8 @@ def regexPatterns(path, line_no, line):
     umatch = re.search(USERNAME_SEARCH_PATTERN, line, re.IGNORECASE)
 
     if umatch:
-        print(f'Possible username found at in file: {path}, line number:{line_no}, match: {line}')
+        print(f'Possible username found in file: {path}, line number:{line_no}, match: {line}')
+        secret_found: bool = True
 
     # Detects hardcoded API key assignments (apikey, api_key, or api-key).
     API_KEY_PATTERN = r"(api[_-]?key|apikey)\s*=\s*\S+"
@@ -29,35 +37,65 @@ def regexPatterns(path, line_no, line):
     api_match = re.search(API_KEY_PATTERN, line, re.IGNORECASE)
 
     if api_match:
-        print(f'Possible username found at in file: {path}, line number:{line_no}, match: {line}')
+        print(f'Possible API key found in file: {path}, line number:{line_no}, match: {line}')
+        secret_found: bool = True
 
+    # matches GitHub tokens beginning with "ghp".
+    GITHUB_TOKEN_PATTERN = r"^\s*token\s*=\s*ghp\S*"
 
-def gHToken(line):
-    pass
+    github_token_match = re.search(GITHUB_TOKEN_PATTERN, line, re.IGNORECASE)
 
-def accountNumber(line):
-    pass 
+    if github_token_match:
+        print(f'Possible Github token found in file: {path}, at line number:{line_no}, match: {line}')
+        secret_found: bool = True
 
+    # matches any file with 'AKIA' after the '='
+    AWS_KEY_PATTERN = r"=\s*AKIA\S*"
 
-# scanner.py reads cli args
+    aws_key_match = re.search(AWS_KEY_PATTERN, line, re.IGNORECASE)
+
+    if aws_key_match:
+        print(f'Possible AWS key found in file: {path}, at line number:{line_no}, match: {line}')
+        secret_found: bool = True
+
+    # returns value to scan()
+    return secret_found
+
+'''
+scan(path) determines if path and file are valid in try/except block
+if files and paths are valid, read file one line at a time
+otherwise except FileNotFound error and inform user.
+''' 
 def scan(path):
     # determine if path is directory or file.
     is_path_valid = os.path.exists(path)
     is_file =os.path.isfile(path)
 
     # print checks
+    '''
     print(path)
     print(is_path_valid)
     print(is_file)
+    '''
 
     # validate if path and file are valid. 
     try:
         if is_path_valid == True and is_file == True:
             with open(path, 'r') as file:
+                any_secrets_found: bool = False
                 # enumerate through file lines to assign line number
+                # each iteration is passed to regexPatterns()
+                # if True secrets were found in this iteration/line
+                # if False no secrets were found in this iteration/line
                 for line_no, line in enumerate(file, start=1):
-                    regexPatterns(path, line_no, line)
-                    #print(f'{line_no}: {line}')
+                    if regexPatterns(path, line_no, line):
+                        any_secrets_found = True
+
+                # if all calls to regexPatterns() False
+                # Inform user file is free of secrets.    
+                if not any_secrets_found:
+                    print(f'No secrets found in: {path}.\n')
+
     except FileNotFoundError:
         print('File not found!\n')
 
