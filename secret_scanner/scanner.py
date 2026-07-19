@@ -12,8 +12,14 @@ def scan(path):
     print(is_file)
 
     # validate if path and file are valid. 
-    if is_path_valid == True and is_file == True:
-        with open(path, 'r') as file:
-            print(file.read())
+    try:
+        if is_path_valid == True and is_file == True:
+            with open(path, 'r') as file:
+                # enumerate through file lines to assign line number
+                for line_no, line in enumerate(file, start=1):
+                    print(f'{line_no}: {line}')
+    except FileNotFoundError:
+        print('File not found!\n')
+
 
 
