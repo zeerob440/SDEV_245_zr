@@ -1,6 +1,32 @@
 import os
-# scanner.py reads cli args
+import re
 
+# regex pattern functions
+
+def regexPatterns(path, line_no, line):
+    
+    PWORD_SEARCH_PATTERN = r"password\s*="
+
+    pmatch = re.search(PWORD_SEARCH_PATTERN, line, re.IGNORECASE)
+        
+    if pmatch:
+        print(f'Possible password found at in file: {path}, line number:{line_no}, match: {line}')
+    
+
+def usernameRegex(line):
+    pass
+
+def phoneNumberRegex(line):
+    pass 
+
+def gHToken(line):
+    pass
+
+def accountNumber(line):
+    pass 
+
+
+# scanner.py reads cli args
 def scan(path):
     # determine if path is directory or file.
     is_path_valid = os.path.exists(path)
@@ -17,7 +43,8 @@ def scan(path):
             with open(path, 'r') as file:
                 # enumerate through file lines to assign line number
                 for line_no, line in enumerate(file, start=1):
-                    print(f'{line_no}: {line}')
+                    regexPatterns(path, line_no, line)
+                    #print(f'{line_no}: {line}')
     except FileNotFoundError:
         print('File not found!\n')
 

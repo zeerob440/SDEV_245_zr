@@ -2,10 +2,11 @@ username=administrator
 
 password=guest
 
-api_key=1234567890abcdef1234567890abcdef
+PHONE_NUMBER=3058675309
 
 token=ghp_a017711x29041077
 
------BEGIN PRIVATE KEY-----
-MIIEv...
------END PRIVATE KEY-----
+AWS_ACCESS_KEY=AKIA345a678b910C234d
+
+ROUTING_NUMBER=987654324
+
