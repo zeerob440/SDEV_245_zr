@@ -2,11 +2,17 @@ username=administrator
 
 password=guest
 
-PHONE_NUMBER=3058675309
+dogs cats birds
+
+apikey=ABC123XYZ986544
 
 token=ghp_a017711x29041077
 
+sixty-five million years in the making
+
 AWS_ACCESS_KEY=AKIA345a678b910C234d
 
-ROUTING_NUMBER=987654324
+name = 'zach'
+
+
 

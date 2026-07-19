@@ -7,28 +7,30 @@ potential sensitive information in selected files.
 ''' 
 def regexPatterns(path, line_no, line):
     
-    #PWORD_SEARCH_PATTERN matches 'password=' along with > 0 whitesepace characters
-    PWORD_SEARCH_PATTERN = r"password\s*="
+    #PWORD_SEARCH_PATTERN matches 'password', allows optional whitespace before '=' and requires a non-empty password after '='.
+    PWORD_SEARCH_PATTERN = r"password\s*=\S+"
 
     pmatch = re.search(PWORD_SEARCH_PATTERN, line, re.IGNORECASE)
         
     if pmatch:
         print(f'Possible password found at in file: {path}, line number:{line_no}, match: {line}')
 
-
-    USERNAME_SEARCH_PATTERN = r"username=\s*="
+    #UNAME_SEARCH_PATTERN matches 'username', allows optional whitespace before '=' and requires a non-empty username after '='.
+    USERNAME_SEARCH_PATTERN = r"username\s*=\S+"
 
     umatch = re.search(USERNAME_SEARCH_PATTERN, line, re.IGNORECASE)
 
     if umatch:
         print(f'Possible username found at in file: {path}, line number:{line_no}, match: {line}')
-    
 
-def usernameRegex(line):
-    pass
+    # Detects hardcoded API key assignments (apikey, api_key, or api-key).
+    API_KEY_PATTERN = r"(api[_-]?key|apikey)\s*=\s*\S+"
 
-def phoneNumberRegex(line):
-    pass 
+    api_match = re.search(API_KEY_PATTERN, line, re.IGNORECASE)
+
+    if api_match:
+        print(f'Possible username found at in file: {path}, line number:{line_no}, match: {line}')
+
 
 def gHToken(line):
     pass
