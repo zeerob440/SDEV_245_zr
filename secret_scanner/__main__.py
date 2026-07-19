@@ -1,3 +1,5 @@
+from parser import obtain_args
+import scanner
 
 '''
 SPECS
@@ -51,6 +53,8 @@ def welcome_func():
 
 # uses parser functions
 def invoke_parser():
+    args = obtain_args()
+    scanner.scan(args.path)
 
 
 if __name__ == '__main__':
