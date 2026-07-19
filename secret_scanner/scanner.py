@@ -1,16 +1,27 @@
 import os
 import re
 
-# regex pattern functions
-
+'''
+regex pattern function, this function searches for strings that match
+potential sensitive information in selected files. 
+''' 
 def regexPatterns(path, line_no, line):
     
+    #PWORD_SEARCH_PATTERN matches 'password=' along with > 0 whitesepace characters
     PWORD_SEARCH_PATTERN = r"password\s*="
 
     pmatch = re.search(PWORD_SEARCH_PATTERN, line, re.IGNORECASE)
         
     if pmatch:
         print(f'Possible password found at in file: {path}, line number:{line_no}, match: {line}')
+
+
+    USERNAME_SEARCH_PATTERN = r"username=\s*="
+
+    umatch = re.search(USERNAME_SEARCH_PATTERN, line, re.IGNORECASE)
+
+    if umatch:
+        print(f'Possible username found at in file: {path}, line number:{line_no}, match: {line}')
     
 
 def usernameRegex(line):
