@@ -37,31 +37,13 @@ nature of potentially sensitive information.
 Proudly Engineered by Zachary Roberts 19 JUL 2026
 "Trust...but verify."
 '''
-# welcomes user to CLI application
-def welcome_func():
-    WELCOME =(
-    '''
-    Welcome the the secret_scanner application! secret_scanner scans files 
-    for secrets that may have been improperly stored. It generates a report on the location and 
-    nature of potentially sensitive information.
-    \n
-    ''')
-
-    print(WELCOME + '\n')
-    print('Scanning for file\n')
-    
-
-# uses parser functions
-def invoke_parser():
+# start program
+if __name__ == '__main__':
     args = obtain_args()
     scanner.scan(args.path)
 
-
-if __name__ == '__main__':
-    #args = obtain_args()
-    welcome_func()
-    invoke_parser()
-    #scanner.scan(args.path)
+   
+    
 
 
 
