@@ -17,21 +17,21 @@ To scan files or directories they need to first be added to secret_scanner packa
 
 All commands are done from __main__.py, to access --help the command is 'python __main__.py --help'
 
-[accessing __main__.py and --help](../pics/stephelpc.png)
+![accessing __main__.py and --help](../pics/stephelpc.png)
 
 ### How to scan a directory
 
 To scan a directory for secrets enter 'python __main__.py directoryNameHere'
 If the directory is valid, secret_scanner will print a report about potential hardcoded secrets. 
 
-[scanning directories](../pics/stepThree.png)
+![scanning directories](../pics/stepThree.png)
 
-### How to scan an single file 
+### How to scan a single file 
 
 To scan a single file for potential secrets enter python __main__.py filepathName/filename.txt
 If the file is valid, secret_scanner will print a report about potential hardcoded secrets in the file.
 
-[scanning files](../pics/stepFour.png)
+![scanning files](../pics/stepFour.png)
 
 ## Program structure
 
