@@ -3,7 +3,6 @@ import re
 
 # scanner.py is responsible for scanning files or directories and applying regex pattern to scan for secrets.
 
-
 '''
 regex pattern function, this function searches for strings that match
 potential sensitive information in selected files. 
@@ -68,12 +67,11 @@ if files and paths are valid, read file one line at a time
 otherwise except FileNotFound error and inform user.
 ''' 
 def scan_file(path):
-    
-  
 
-    # validate if path and file are valid. 
+    # validate if file is valid. 
     try:
             with open(path, 'r') as file:
+                print(f'Scanning file: {path}.\n')
                 any_secrets_found: bool = False
                 # enumerate through file lines to assign line number
                 # each iteration is passed to regexPatterns()
@@ -93,16 +91,15 @@ def scan_file(path):
     
     except PermissionError:
         print(f'Permission denied: {path}')
-
-    
+  
 # determine if path is directory or file.
 def scan(path):
-
+    # if input is file, invoke scan_file
     if os.path.isfile(path):
         scan_file(path)
 
+    # if input is directory, scan directory. 
     elif os.path.isdir(path):
-
         print(f'Scanning directory: {path}\n')
 
         for filename in os.listdir(path):
@@ -110,7 +107,7 @@ def scan(path):
             complete_file_path = os.path.join(path, filename)
             scan_file(complete_file_path)
     else:
-        print(f'invalid path\n')
+        print(f'Invalid path.\n')
 
 
 

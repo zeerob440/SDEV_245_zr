@@ -11,12 +11,12 @@ def obtain_args():
         description = '''Welcome the the secret_scanner application! secret_scanner scans files 
         for secrets that may have been improperly stored. It generates a report on the location and 
         nature of potentially sensitive information.\n
-        Scan a file for potential hardcoded secrets including: usernames, passwords, API keys, GitHub tokens, and AWS keys.'''
+        Scan a file for potential hardcoded secrets including: usernames, passwords, API keys, GitHub tokens, and AWS keys.\n'''
         )
 
     # obtain input from CLI
-    parser.add_argument('path', help = 'path to file or directory to scan for secrets.')
+    parser.add_argument('path', help = 'Enter path to file or directory to scan for secrets.\n')
 
-    # read CLI input, and return
+    # read CLI input, and return args
     args = parser.parse_args()
     return args
