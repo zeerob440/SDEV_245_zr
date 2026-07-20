@@ -5,7 +5,11 @@ secret_scanner is a CLI utilities application implemented with argparse, and re.
 secret_scanner allows the user to input a **file or directory** via CLI. __main__.py serves as the application entry point and orchestrator. parser.py handles argparse, user input, and help functionality. scanner.py contains functions for scanning files and directories as well as the regex pattern matching function. Detected secrets are reported to the user by filepath, line number, potential secret found, and specif match.
 
 ## How to Use secret_scanner
-The entry point to secret_scanner is __main__.py
+The entry point to secret_scanner is __main__.py, it run in a terminal
+
+### How to access Terminal
+
+![accessing terminal](pics/step1.png)
 
 To scan files or directories they need to first be added to secret_scanner package, otherwise use the default 'depository' directory or child files. 
 
