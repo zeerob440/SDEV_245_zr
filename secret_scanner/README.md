@@ -9,7 +9,7 @@ The entry point to secret_scanner is __main__.py, it run in a terminal
 
 ### How to access Terminal
 
-![accessing terminal](pics/step1.png)
+![accessing terminal](../pics/step1.png)
 
 To scan files or directories they need to first be added to secret_scanner package, otherwise use the default 'depository' directory or child files. 
 
