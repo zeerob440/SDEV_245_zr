@@ -66,21 +66,12 @@ scan(path) determines if path and file are valid in try/except block
 if files and paths are valid, read file one line at a time
 otherwise except FileNotFound error and inform user.
 ''' 
-def scan(path):
-    # determine if path is directory or file.
-    is_path_valid = os.path.exists(path)
-    is_file =os.path.isfile(path)
-
-    # print checks
-    '''
-    print(path)
-    print(is_path_valid)
-    print(is_file)
-    '''
+def scan_file(path):
+    
+  
 
     # validate if path and file are valid. 
     try:
-        if is_path_valid == True and is_file == True:
             with open(path, 'r') as file:
                 any_secrets_found: bool = False
                 # enumerate through file lines to assign line number
@@ -98,6 +89,27 @@ def scan(path):
 
     except FileNotFoundError:
         print('File not found!\n')
+    
+    except PermissionError:
+        print(f'Permission denied: {path}')
+
+    
+# determine if path is directory or file.
+def scan(path):
+
+    if os.path.isfile(path):
+        scan_file(path)
+
+    elif os.path.isdir(path):
+
+        print(f'Scanning directory: {path}\n')
+
+        for filename in os.listdir(path):
+
+            complete_file_path = os.path.join(path, filename)
+            scan_file(complete_file_path)
+    else:
+        print(f'invalid path\n')
 
 
 
