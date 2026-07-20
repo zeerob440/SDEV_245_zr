@@ -1,6 +1,7 @@
 import os
 import re
 
+# scanner.py is responsible for scanning files or directories and applying regex pattern to scan for secrets.
 
 
 '''
