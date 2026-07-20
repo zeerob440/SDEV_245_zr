@@ -72,6 +72,9 @@ def scan_file(path):
     try:
             with open(path, 'r') as file:
                 print(f'Scanning file: {path}.\n')
+                # flag if any secrets found by regexPatterns()
+                # if regexPattern() returns False for all iterations of scan any_secrets_found, execute 'no secrets found'
+                # if regexPattern() returns True on any iteration, any_secrets_found = True, prints report from regexPatterns() 
                 any_secrets_found: bool = False
                 # enumerate through file lines to assign line number
                 # each iteration is passed to regexPatterns()
@@ -86,6 +89,7 @@ def scan_file(path):
                 if not any_secrets_found:
                     print(f'No secrets found in: {path}.\n')
 
+    # safety exceptions, not expected to be reached, for extreme edge-cases.  
     except FileNotFoundError:
         print('File not found!\n')
     
@@ -107,7 +111,8 @@ def scan(path):
             complete_file_path = os.path.join(path, filename)
             scan_file(complete_file_path)
     else:
-        print(f'Invalid path.\n')
+        # first line of defense for invalid paths and files.
+        print(f'{path} does not exist or is not a valid file/directory.\n')
 
 
 
